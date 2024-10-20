@@ -1,1 +1,4 @@
 OPENAI_API
+
+# Python
+__pycache__/

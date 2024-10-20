@@ -2,7 +2,7 @@ from openai import OpenAI
 import argparse
 import sys
 
-print("Hello World")
+from pedestal import Pedestal
 
 def main():
     parser = argparse.ArgumentParser(description="Learn more about a topic using OpenAI.")
@@ -15,21 +15,15 @@ def main():
     
     client = OpenAI(api_key=api_key)
 
-    for model in client.models.list():
-        print(model.id)
+    learner = Pedestal(args.topic, client)
 
-    completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
-            {
-                "role": "user",
-                "content": "Write a haiku about recursion in programming."
-            }
-        ]
-    )
+    while True:
+        try:
+            learner.invoke()
+        except KeyboardInterrupt:
+            print("\nLearning session interrupted. Goodbye!")
+            sys.exit(0)        
 
-    print(completion.choices[0].message)
 
 if __name__ == "__main__":
     main()
