@@ -17,6 +17,7 @@
 		8EF819F22CC9E79700C60229 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF819F12CC9E79700C60229 /* MarkdownUI */; };
 		8EF819F72CCAA32D00C60229 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819F62CCAA32D00C60229 /* Posts.swift */; };
 		8EF819F92CCAA34200C60229 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819F82CCAA34200C60229 /* Questions.swift */; };
+		8EF819FB2CCAD54700C60229 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819FA2CCAD54700C60229 /* Topics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8EF819EE2CC9DCC900C60229 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8EF819F62CCAA32D00C60229 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		8EF819F82CCAA34200C60229 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		8EF819FA2CCAD54700C60229 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				8EF819F62CCAA32D00C60229 /* Posts.swift */,
 				8EF819F82CCAA34200C60229 /* Questions.swift */,
+				8EF819FA2CCAD54700C60229 /* Topics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E75C2EC2CC8903E00B03D14 /* ContentView.swift in Sources */,
+				8EF819FB2CCAD54700C60229 /* Topics.swift in Sources */,
 				8EF819F72CCAA32D00C60229 /* Posts.swift in Sources */,
 				8E75C2F82CC890D500B03D14 /* TimelineView.swift in Sources */,
 				8EF819F92CCAA34200C60229 /* Questions.swift in Sources */,
@@ -308,6 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pedestal/Preview Content\"";
+				DEVELOPMENT_TEAM = 7X5NAV6824;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -336,6 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Pedestal/Preview Content\"";
+				DEVELOPMENT_TEAM = 7X5NAV6824;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

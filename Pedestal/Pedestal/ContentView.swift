@@ -7,18 +7,29 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TopicView: View {
+    @ObservedObject var topic: Topic
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(topic.title)
         }
-        .padding()
+        .frame(width: 100, height: 100)
+        .background(.blue)
+        .cornerRadius(12)
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView: View {
+    let topics: [Topic]
+    
+    var body: some View {
+        TopicView(topic: topics[0])
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView(topics: Topic.previewTopics)
+    }
 }

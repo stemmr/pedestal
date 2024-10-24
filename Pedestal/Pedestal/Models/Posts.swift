@@ -50,6 +50,24 @@ extension Posts {
         ))
         
         posts.addPost(post: Post(
+            title: "Socrates: The Man Who Asked Why",
+            summary: """
+                     A philosopher who never wrote a word, Socrates profoundly impacted Western thought through dialogues and debates.
+                     Learn about his unyielding quest for truth, his method of inquiry, and the trial that led to his execution—sparking discussions on ethics and justice that resonate today.
+                     """,
+            content: "Socrates"
+        ))
+        
+        posts.addPost(post: Post(
+            title: "Socrates: The Man Who Asked Why",
+            summary: """
+                     A philosopher who never wrote a word, Socrates profoundly impacted Western thought through dialogues and debates.
+                     Learn about his unyielding quest for truth, his method of inquiry, and the trial that led to his execution—sparking discussions on ethics and justice that resonate today.
+                     """,
+            content: "Socrates"
+        ))
+        
+        posts.addPost(post: Post(
             title: "The Trojan War: Myth Meets History",
             summary: """
                      Immortalized by Homer's epics, the Trojan War blurs the lines between legend and reality.

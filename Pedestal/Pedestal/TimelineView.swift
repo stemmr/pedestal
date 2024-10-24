@@ -32,9 +32,29 @@ struct TimelineView: View {
     }
 }
 
+struct ScrollableTimelineView: View {
+    let postManager: Posts
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                ForEach(postManager.posts) { post in
+                    VStack {
+                        PostRowView(post: post)
+                            .padding(.horizontal)
+                            .padding(.vertical, 12)
+                        Divider()
+                    }
+                }
+            }
+        }
+        Text("Yolo")
+    }
+}
+
 // Preview provider for SwiftUI previews
-struct ContentView_Previews: PreviewProvider {
+struct TimelineView_Previews: PreviewProvider {
     static var previews: some View {
-        TimelineView(postManager: Posts.preview)
+        ScrollableTimelineView(postManager: Posts.preview)
     }
 }

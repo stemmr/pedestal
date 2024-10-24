@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct PedestalApp: App {
+    var topics: [Topic] = []
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(topics: topics)
         }
     }
 }

@@ -41,3 +41,11 @@ Open Questions:
 Learning Strategies:
 - Active Recall
 - Spaced repition
+
+### iOS
+Views:
+1. Topics
+2. Timeline
+3. Post
+4. Bookmarked
+5. Question
