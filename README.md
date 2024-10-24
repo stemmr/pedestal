@@ -29,6 +29,9 @@ Options:
   - Explore: shows a timeline of chunks of information that users can either Bookmark or tab in to for a more detailed explanation, with more chunks (that can then also be bookmarked, similar to a wikipedia rabbit hole)
   - Bookmarks: shows all the informations you've bookmarked / allows you to delete, continue exploring or pinpoint for deeper grok
   - Practice: Uses your bookmarks as an input help you grok your topic (multiple choice questions) depending on difficulty of question, awarded points in the domain specified 
+- Pregenerate a large collection of Wikipedia style articles from the collection
+  - 2000 tokens per article, 2M Tokens for 1k articles
+  - $24 for 1k articles with o1-mini, $120 for 1k with o1, $10 for 1k with 4o 
 
 Open Questions:
 - How do we capture the user's interests?
@@ -38,4 +41,3 @@ Open Questions:
 Learning Strategies:
 - Active Recall
 - Spaced repition
-

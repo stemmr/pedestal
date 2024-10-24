@@ -1,0 +1,63 @@
+//
+//  PostView.swift
+//  Pedestal
+//
+//  Created by Arthur Stemmer on 10/23/24.
+//
+
+import SwiftUI
+import MarkdownUI
+
+struct PostView: View {
+    let markdownContent: String
+    
+    var body: some View {
+        Markdown(markdownContent)
+    }
+}
+
+struct PostView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostView(markdownContent: """
+            # Large Markdown Document
+                        
+            ## Introduction
+            This is a sample of a large markdown document that demonstrates the scrolling capabilities and formatting of our view.
+            
+            ## Features
+            
+            ### Comfortable Reading Width
+            The content is limited to a maximum width for optimal readability, but will adjust on smaller screens.
+            
+            ### Proper Spacing
+            Paragraphs and headings have appropriate spacing to improve readability.
+            
+            ### Code Blocks
+            ```swift
+            func example() {
+                print("Code blocks are properly formatted")
+                print("With monospace font and background")
+            }
+            ```
+            
+            ### Blockquotes
+            > Important quotes and callouts are styled distinctly
+            > With proper indentation and borders
+            
+            ### Lists
+            - List items are properly formatted
+            - With appropriate spacing
+            - And indentation
+            
+            ## Long Content Support
+            
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            
+            ### Another Section
+            
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            
+            [Link Example](https://example.com)
+            """)
+    }
+}

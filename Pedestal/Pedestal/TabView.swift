@@ -11,7 +11,7 @@ struct SwitchView: View {
     var body: some View {
         TabView {
             // First Tab - Received
-            TimelineView(posts: <#T##[Post]#>)
+            Text("World")
                 .tabItem {
                     Image(systemName: "globe.desk")
                     Text("Explore")

@@ -13,6 +13,8 @@
 		8E75C2F12CC8904000B03D14 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E75C2F02CC8904000B03D14 /* Preview Assets.xcassets */; };
 		8E75C2F82CC890D500B03D14 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75C2F72CC890D500B03D14 /* TimelineView.swift */; };
 		8E75C2FB2CC8942500B03D14 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75C2FA2CC8942500B03D14 /* TabView.swift */; };
+		8EF819EF2CC9DCC900C60229 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819EE2CC9DCC900C60229 /* PostView.swift */; };
+		8EF819F22CC9E79700C60229 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF819F12CC9E79700C60229 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,7 @@
 		8E75C2F02CC8904000B03D14 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E75C2F72CC890D500B03D14 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		8E75C2FA2CC8942500B03D14 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		8EF819EE2CC9DCC900C60229 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF819F22CC9E79700C60229 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 				8E75C2E92CC8903E00B03D14 /* PedestalApp.swift */,
 				8E75C2F72CC890D500B03D14 /* TimelineView.swift */,
 				8E75C2EB2CC8903E00B03D14 /* ContentView.swift */,
+				8EF819EE2CC9DCC900C60229 /* PostView.swift */,
 				8E75C2FA2CC8942500B03D14 /* TabView.swift */,
 				8E75C2ED2CC8904000B03D14 /* Assets.xcassets */,
 				8E75C2EF2CC8904000B03D14 /* Preview Content */,
@@ -89,6 +94,9 @@
 			dependencies = (
 			);
 			name = Pedestal;
+			packageProductDependencies = (
+				8EF819F12CC9E79700C60229 /* MarkdownUI */,
+			);
 			productName = Pedestal;
 			productReference = 8E75C2E62CC8903E00B03D14 /* Pedestal.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 8E75C2DD2CC8903E00B03D14;
+			packageReferences = (
+				8EF819F02CC9E79600C60229 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+			);
 			productRefGroup = 8E75C2E72CC8903E00B03D14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,6 +157,7 @@
 				8E75C2EC2CC8903E00B03D14 /* ContentView.swift in Sources */,
 				8E75C2F82CC890D500B03D14 /* TimelineView.swift in Sources */,
 				8E75C2FB2CC8942500B03D14 /* TabView.swift in Sources */,
+				8EF819EF2CC9DCC900C60229 /* PostView.swift in Sources */,
 				8E75C2EA2CC8903E00B03D14 /* PedestalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8EF819F02CC9E79600C60229 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8EF819F12CC9E79700C60229 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8EF819F02CC9E79600C60229 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8E75C2DE2CC8903E00B03D14 /* Project object */;
 }
