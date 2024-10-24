@@ -7,43 +7,34 @@
 
 import SwiftUI
 
-struct Post: Identifiable {
-    let id = UUID()
-    let content: String
-}
-
 struct PostRowView: View {
     let post: Post
 
     var body: some View {
-        Text(post.content)
-            .font(.body)
-            .padding(.vertical, 8)
+        VStack(alignment: .leading, spacing: 8) {
+            Text(post.title)
+                .fontWeight(.semibold)
+            Text(post.summary)
+                
+        }
+        .font(.body)
     }
 }
 
 struct TimelineView: View {
-    let posts: [Post]
+    let postManager: Posts
 
     var body: some View {
-        List(posts) { post in
+        List(postManager.posts) { post in
             PostRowView(post: post)
         }
         .listStyle(PlainListStyle())
     }
 }
 
-extension TimelineView {
-    static var samplePosts: [Post] = [
-        Post(content: "Hello, world!"),
-        Post(content: "Just had coffee."),
-        Post(content: "SwiftUI is awesome!"),
-    ]
-}
-
 // Preview provider for SwiftUI previews
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TimelineView(posts: TimelineView.samplePosts)
+        TimelineView(postManager: Posts.preview)
     }
 }
