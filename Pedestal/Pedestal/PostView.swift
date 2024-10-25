@@ -14,6 +14,7 @@ struct PostView: View {
     var body: some View {
         ScrollView {
             Markdown(post.content)
+                .padding(.horizontal, 10)
         }
     }
 }
