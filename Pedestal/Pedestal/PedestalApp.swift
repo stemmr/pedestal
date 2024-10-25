@@ -13,7 +13,7 @@ struct PedestalApp: App {
     @StateObject private var posts = Posts.preview
     
     var body: some Scene {
-        WindowGroup {
+        return WindowGroup {
             ContentView(topics: topics)
                 .environmentObject(posts)
         }

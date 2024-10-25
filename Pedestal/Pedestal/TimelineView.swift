@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct PostRowView: View {
-    let post: Post
+    @Binding var post: Post
 
     var body: some View {
-        NavigationLink(destination: PostView(post: post)) {
+        NavigationLink(destination: PostView(post: $post)) {
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
@@ -21,10 +21,10 @@ struct PostRowView: View {
                             .multilineTextAlignment(.leading)
                         Spacer()
                         Button(action: {
-                            // Bookmark action to be added
+                            post.toggleBookmark()
                         }) {
-                            Image(systemName: "bookmark")
-                                .foregroundColor(.gray)
+                            Image(systemName: post.bookmarked ? "bookmark.fill" : "bookmark")
+                                .foregroundColor(post.bookmarked ? .orange : .gray)
                         }
                     }
                     Text(post.summary)
@@ -34,8 +34,6 @@ struct PostRowView: View {
                 }
                 .font(.body)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                
-                
             }
         }
         .buttonStyle(PlainButtonStyle())
@@ -50,9 +48,9 @@ struct ScrollableTimelineView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach(postManager.posts) { post in
+                ForEach($postManager.posts) { $post in
                     VStack {
-                        PostRowView(post: post)
+                        PostRowView(post: $post)
                             .padding(.horizontal)
                             .padding(.vertical, 12)
                         Rectangle()

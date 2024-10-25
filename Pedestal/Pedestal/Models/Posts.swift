@@ -12,7 +12,7 @@ struct Post: Identifiable {
     let title: String
     let summary: String
     let content: String
-    let bookmarked: Bool
+    var bookmarked: Bool
     
     init(
         id: UUID = UUID(),
@@ -27,11 +27,16 @@ struct Post: Identifiable {
         self.content = content
         self.bookmarked = bookmarked
     }
+    
+    mutating func toggleBookmark() {
+        print("Bookmark toggled for post: \(title)")
+        self.bookmarked = !self.bookmarked
+    }
 }
 
 @MainActor
 class Posts: ObservableObject {
-    @Published private(set) var posts: [Post] = []
+    @Published var posts: [Post] = []
     
     func addPost(post: Post) {
         self.posts.append(post)
@@ -106,7 +111,8 @@ extension Posts {
             2. A Christian church
             3. An Ottoman mosque
             4. A symbol of Western civilization
-            """
+            """,
+            bookmarked: true
         ))
         
         posts.addPost(post: Post(

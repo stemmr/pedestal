@@ -9,7 +9,7 @@ import SwiftUI
 import MarkdownUI
 
 struct PostView: View {
-    let post: Post
+    @Binding var post: Post
     
     var body: some View {
         ScrollView {
@@ -20,6 +20,6 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(post: Posts.preview.posts[3])
+        PostView(post: .constant(Posts.preview.posts[3]))
     }
 }
