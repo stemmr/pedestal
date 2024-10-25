@@ -6,3 +6,6 @@
 - Allow bookmarking / liking of posts
 - Add TabView to navigate between Views
 - Add QuestionView to Practice
+- Add an App Icon
+
+### Backend

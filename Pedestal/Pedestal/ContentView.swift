@@ -11,12 +11,14 @@ struct TopicView: View {
     @ObservedObject var topic: Topic
     
     var body: some View {
-        VStack {
-            Text(topic.title)
+        NavigationLink(destination: ScrollableTimelineView(postManager: Posts.preview)) {
+            VStack {
+                Text(topic.title)
+            }
+            .frame(width: 120, height: 160)
+            .background(Theme.secondary.color)
+            .cornerRadius(12)
         }
-        .frame(width: 100, height: 100)
-        .background(.blue)
-        .cornerRadius(12)
     }
 }
 
