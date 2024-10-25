@@ -78,9 +78,9 @@
 				8EF819EE2CC9DCC900C60229 /* PostView.swift */,
 				8EF81A062CCC3F0B00C60229 /* BookmarksView.swift */,
 				8EF81A042CCC3C0100C60229 /* MainTabView.swift */,
+				8EF81A082CCC3F1E00C60229 /* QuestionsView.swift */,
 				8E75C2ED2CC8904000B03D14 /* Assets.xcassets */,
 				8E75C2EF2CC8904000B03D14 /* Preview Content */,
-				8EF81A082CCC3F1E00C60229 /* QuestionsView.swift */,
 			);
 			path = Pedestal;
 			sourceTree = "<group>";

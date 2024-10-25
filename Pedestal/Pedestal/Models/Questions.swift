@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Protocol for different question types
 protocol Question: Identifiable {
     var question: String { get }
     var postId: UUID { get }
@@ -15,7 +14,6 @@ protocol Question: Identifiable {
     var answered: Bool { get }
 }
 
-// Multiple choice question implementation
 struct MultipleChoiceQuestion: Question {
     let id: UUID
     let postId: UUID
