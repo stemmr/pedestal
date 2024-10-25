@@ -11,7 +11,7 @@ struct TopicView: View {
     @ObservedObject var topic: Topic
     
     var body: some View {
-        NavigationLink(destination: ScrollableTimelineView(postManager: Posts.preview)) {
+        NavigationLink(destination: MainTabView()) {
             VStack {
                 Text(topic.title)
             }
@@ -26,7 +26,9 @@ struct ContentView: View {
     let topics: [Topic]
     
     var body: some View {
-        TopicView(topic: topics[0])
+        NavigationView {
+            TopicView(topic: topics[0])
+        }
     }
 }
 

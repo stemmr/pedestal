@@ -9,15 +9,17 @@ import SwiftUI
 import MarkdownUI
 
 struct PostView: View {
-    let markdownContent: String
+    let post: Post
     
     var body: some View {
-        Markdown(markdownContent)
+        ScrollView {
+            Markdown(post.content)
+        }
     }
 }
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(markdownContent: Posts.preview.posts[0].content)
+        PostView(post: Posts.preview.posts[3])
     }
 }

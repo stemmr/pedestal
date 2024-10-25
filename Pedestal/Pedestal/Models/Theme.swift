@@ -12,6 +12,11 @@ enum Theme: String {
     case secondary
     case tertiary
     
+    // Text accent colors
+    case title
+    case subtitle
+    case body
+    
     var color: Color {
         Color(rawValue)
     }

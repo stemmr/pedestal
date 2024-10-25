@@ -24,7 +24,7 @@ class Topic: Identifiable, ObservableObject {
 extension Topic {
     #if DEBUG
     static var previewTopics: [Topic] {
-        var topics: [Topic] = [
+        let topics: [Topic] = [
             Topic(title: "History"),
             Topic(title: "Physics"),
             Topic(title: "Biology")

@@ -11,29 +11,41 @@ struct PostRowView: View {
     let post: Post
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(post.title)
-                .fontWeight(.semibold)
-            Text(post.summary)
+        NavigationLink(destination: PostView(post: post)) {
+            HStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text(post.title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Theme.title.color)
+                            .multilineTextAlignment(.leading)
+                        Spacer()
+                        Button(action: {
+                            // Bookmark action to be added
+                        }) {
+                            Image(systemName: "bookmark")
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    Text(post.summary)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Theme.subtitle.color)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .font(.body)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
+                
+            }
         }
-        .font(.body)
-    }
-}
-
-struct TimelineView: View {
-    let postManager: Posts
-
-    var body: some View {
-        List(postManager.posts) { post in
-            PostRowView(post: post)
-        }
-        .listStyle(PlainListStyle())
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
 struct ScrollableTimelineView: View {
-    let postManager: Posts
+    @EnvironmentObject var postManager: Posts
+    
+    init() {}
     
     var body: some View {
         ScrollView {
@@ -43,18 +55,20 @@ struct ScrollableTimelineView: View {
                         PostRowView(post: post)
                             .padding(.horizontal)
                             .padding(.vertical, 12)
-                        Divider()
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.gray.opacity(0.3))
                     }
                 }
             }
         }
-        Text("Yolo")
     }
 }
 
 // Preview provider for SwiftUI previews
 struct TimelineView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollableTimelineView(postManager: Posts.preview)
+        ScrollableTimelineView()
+            .environmentObject(Posts.preview)
     }
 }

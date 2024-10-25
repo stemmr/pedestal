@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct PedestalApp: App {
-    var topics: [Topic] = []
+    var topics: [Topic] = Topic.previewTopics
+    @StateObject private var posts = Posts.preview
     
     var body: some Scene {
         WindowGroup {
             ContentView(topics: topics)
+                .environmentObject(posts)
         }
     }
 }
