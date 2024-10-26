@@ -64,9 +64,16 @@ struct ScrollableTimelineView: View {
 }
 
 // Preview provider for SwiftUI previews
-struct TimelineView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScrollableTimelineView()
-            .environmentObject(Posts.preview)
-    }
+//struct TimelineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScrollableTimelineView()
+//            .environmentObject(Posts.preview)
+//    }
+//}
+
+#Preview {
+    Text("Hello World")
+//    ScrollableTimelineView()
+//        .environmentObject(PostViewModel(topic: "History"))
 }
+
