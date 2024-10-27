@@ -9,13 +9,24 @@ import SwiftUI
 
 @main
 struct PedestalApp: App {
-    var topics: [Topic] = Topic.previewTopics
-    @StateObject private var posts = Posts.preview
+    var topics: [String] = [
+        "history"
+    ]
+    var postViewModels: [PostViewModel]
+    
+    init() {
+        print("--- Initializing Pedestal App ---")
+        postViewModels = []
+        for topic in topics {
+            postViewModels.append(
+                PostViewModel(topic: topic)
+            )
+        }
+    }
     
     var body: some Scene {
         return WindowGroup {
-            ContentView(topics: topics)
-                .environmentObject(posts)
+            ContentView(topics: self.postViewModels)
         }
     }
 }

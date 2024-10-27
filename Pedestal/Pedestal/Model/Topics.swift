@@ -10,13 +10,16 @@ import Foundation
 class Topic: Identifiable, ObservableObject {
     let id: UUID
     let title: String
+    let points: Int
     
     init(
         id: UUID = UUID(),
-        title: String
+        title: String,
+        points: Int = 0
     ){
         self.id = id
         self.title = title
+        self.points = points
     }
 }
 

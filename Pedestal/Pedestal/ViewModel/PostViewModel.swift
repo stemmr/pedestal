@@ -8,32 +8,42 @@
 import Foundation
 
 @MainActor
-class PostViewModel: ObservableObject {
-    let topic: String
+class PostViewModel: Identifiable, ObservableObject {
+    let id: UUID
     let network: Bool = false
+    @Published var topic: Topic
     @Published var posts: [Post] = []
     @Published var questions: [any Question] = []
     
-    init(topic: String) {
-        self.topic = topic
+    init(
+        id: UUID = UUID(),
+        topic: String
+    ) {
+        self.id = id
+        // Always load from JSON for now, make network calls later
+        let data: (topic: Topic, posts: [Post], questions: [any Question])
         if !network {
-            let data = PostViewModel.loadFromJSON(topic: topic)
-            self.posts = data.posts
-            self.questions = data.questions
+            data = PostViewModel.loadFromJSON(topic: topic)
         } else {
-            print("Retrieveing posts from network not yet supported!")
+            data = PostViewModel.loadFromJSON(topic: topic)
         }
+        self.topic = data.topic
+        self.posts = data.posts
+        self.questions = data.questions
     }
     
-    static func loadFromJSON(topic: String) -> (posts: [Post], questions: [any Question]) {
+    static func loadFromJSON(topic: String) -> (topic: Topic, posts: [Post], questions: [any Question]) {
         do {
             let response = try LocalDecoder.decodeJSON(file: "posts")
             print("Decoded content from JSON File")
-            let topic = response.content.filter { topicItem in
+            let topicResponse = response.content.filter { topicItem in
                 topicItem.topic == topic
-            }
+            }[0]
             // Should return empty posts / questions if fails
-            let topicResponse: TopicResponse = topic[0]
+            let topic: Topic = Topic(
+                title: topicResponse.topic,
+                points: topicResponse.points
+            )
             var posts: [Post] = []
             var questions: [any Question] = []
             
@@ -55,10 +65,10 @@ class PostViewModel: ObservableObject {
                 posts.append(post)
                 questions += postQuestions
             }
-            return (posts, questions)
+            return (topic, posts, questions)
         } catch {
             print("Error loading JSON: \(error)")
-            return (posts: [], questions: [])
+            return (Topic(title: topic), posts: [], questions: [])
         }
     }
     
