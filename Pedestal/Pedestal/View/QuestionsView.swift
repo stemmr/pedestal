@@ -30,7 +30,7 @@ struct QuestionsView: View {
                             .font(.body)
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Theme.secondary.color)
+                            .background(Theme.secondaryHighlight.color)
                             .cornerRadius(10)
                     }
                     .buttonStyle(PlainButtonStyle())

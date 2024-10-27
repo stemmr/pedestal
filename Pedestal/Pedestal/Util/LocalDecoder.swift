@@ -26,7 +26,7 @@ struct QuestionResponse: Decodable {
     let points: Int
 }
 
-class LocalDecoder {
+public class LocalDecoder {
     
     static func decodeJSON(file: String) throws -> TopicResponse {
         guard let path = Bundle.main.path(forResource: file, ofType: "json") else {

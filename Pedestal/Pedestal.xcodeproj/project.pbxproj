@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		8E75C2F82CC890D500B03D14 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75C2F72CC890D500B03D14 /* TimelineView.swift */; };
 		8E8E6D0B2CCD8EE4006DDAA0 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D0A2CCD8EE4006DDAA0 /* PostViewModel.swift */; };
 		8E8E6D0E2CCD9462006DDAA0 /* LocalDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D0D2CCD9462006DDAA0 /* LocalDecoder.swift */; };
-		8E8E6D232CCDAAD8006DDAA0 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D222CCDAAD8006DDAA0 /* Tests.swift */; };
 		8EF819EF2CC9DCC900C60229 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819EE2CC9DCC900C60229 /* PostView.swift */; };
 		8EF819F22CC9E79700C60229 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF819F12CC9E79700C60229 /* MarkdownUI */; };
 		8EF819F72CCAA32D00C60229 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819F62CCAA32D00C60229 /* Posts.swift */; };
@@ -27,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8E4A5A052CCDBB7F00941DEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E75C2DE2CC8903E00B03D14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E75C2E52CC8903E00B03D14;
+			remoteInfo = Pedestal;
+		};
 		8E8E6D172CCDA9B3006DDAA0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8E75C2DE2CC8903E00B03D14 /* Project object */;
@@ -44,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E4A5A012CCDBB7F00941DEA /* Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E75C2E62CC8903E00B03D14 /* Pedestal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pedestal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E75C2E92CC8903E00B03D14 /* PedestalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedestalApp.swift; sourceTree = "<group>"; };
 		8E75C2EB2CC8903E00B03D14 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,7 +62,6 @@
 		8E8E6D0D2CCD9462006DDAA0 /* LocalDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDecoder.swift; sourceTree = "<group>"; };
 		8E8E6D132CCDA9B3006DDAA0 /* PedestalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PedestalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E8E6D202CCDAAD8006DDAA0 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E8E6D222CCDAAD8006DDAA0 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8EF819EE2CC9DCC900C60229 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8EF819F62CCAA32D00C60229 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		8EF819F82CCAA34200C60229 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
@@ -66,7 +72,18 @@
 		8EF81A082CCC3F1E00C60229 /* QuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8E4A5A022CCDBB7F00941DEA /* Test */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Test; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		8E4A59FE2CCDBB7F00941DEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E75C2E32CC8903E00B03D14 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,8 +112,9 @@
 		8E75C2DD2CC8903E00B03D14 = {
 			isa = PBXGroup;
 			children = (
+				8E80866B2CCDBBFB001C8B5D /* PedestalTests */,
 				8E75C2E82CC8903E00B03D14 /* Pedestal */,
-				8E8E6D212CCDAAD8006DDAA0 /* Tests */,
+				8E4A5A022CCDBB7F00941DEA /* Test */,
 				8E75C2E72CC8903E00B03D14 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -107,6 +125,7 @@
 				8E75C2E62CC8903E00B03D14 /* Pedestal.app */,
 				8E8E6D132CCDA9B3006DDAA0 /* PedestalTests.xctest */,
 				8E8E6D202CCDAAD8006DDAA0 /* Tests.xctest */,
+				8E4A5A012CCDBB7F00941DEA /* Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,17 +133,12 @@
 		8E75C2E82CC8903E00B03D14 /* Pedestal */ = {
 			isa = PBXGroup;
 			children = (
+				8ECD9FFA2CCDBAFB00D8CB18 /* View */,
 				8E8E6D0C2CCD9445006DDAA0 /* Util */,
-				8E8E6D092CCD8E60006DDAA0 /* ViewModels */,
-				8E8E6D072CCD89EA006DDAA0 /* Resources */,
-				8EF819F52CCAA30700C60229 /* Models */,
+				8E8E6D092CCD8E60006DDAA0 /* ViewModel */,
+				8E8E6D072CCD89EA006DDAA0 /* Resource */,
+				8EF819F52CCAA30700C60229 /* Model */,
 				8E75C2E92CC8903E00B03D14 /* PedestalApp.swift */,
-				8E75C2F72CC890D500B03D14 /* TimelineView.swift */,
-				8E75C2EB2CC8903E00B03D14 /* ContentView.swift */,
-				8EF819EE2CC9DCC900C60229 /* PostView.swift */,
-				8EF81A062CCC3F0B00C60229 /* BookmarksView.swift */,
-				8EF81A042CCC3C0100C60229 /* MainTabView.swift */,
-				8EF81A082CCC3F1E00C60229 /* QuestionsView.swift */,
 				8E75C2ED2CC8904000B03D14 /* Assets.xcassets */,
 				8E75C2EF2CC8904000B03D14 /* Preview Content */,
 			);
@@ -139,20 +153,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8E8E6D072CCD89EA006DDAA0 /* Resources */ = {
+		8E80866B2CCDBBFB001C8B5D /* PedestalTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PedestalTests;
+			sourceTree = "<group>";
+		};
+		8E8E6D072CCD89EA006DDAA0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				8E8E6D082CCD8AC5006DDAA0 /* posts.json */,
 			);
-			path = Resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
-		8E8E6D092CCD8E60006DDAA0 /* ViewModels */ = {
+		8E8E6D092CCD8E60006DDAA0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				8E8E6D0A2CCD8EE4006DDAA0 /* PostViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8E8E6D0C2CCD9445006DDAA0 /* Util */ = {
@@ -163,15 +184,20 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		8E8E6D212CCDAAD8006DDAA0 /* Tests */ = {
+		8ECD9FFA2CCDBAFB00D8CB18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8E8E6D222CCDAAD8006DDAA0 /* Tests.swift */,
+				8E75C2F72CC890D500B03D14 /* TimelineView.swift */,
+				8E75C2EB2CC8903E00B03D14 /* ContentView.swift */,
+				8EF819EE2CC9DCC900C60229 /* PostView.swift */,
+				8EF81A062CCC3F0B00C60229 /* BookmarksView.swift */,
+				8EF81A042CCC3C0100C60229 /* MainTabView.swift */,
+				8EF81A082CCC3F1E00C60229 /* QuestionsView.swift */,
 			);
-			path = Tests;
+			path = View;
 			sourceTree = "<group>";
 		};
-		8EF819F52CCAA30700C60229 /* Models */ = {
+		8EF819F52CCAA30700C60229 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				8EF819F62CCAA32D00C60229 /* Posts.swift */,
@@ -179,12 +205,35 @@
 				8EF819FA2CCAD54700C60229 /* Topics.swift */,
 				8EF81A002CCC1D4C00C60229 /* Theme.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8E4A5A002CCDBB7F00941DEA /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E4A5A072CCDBB7F00941DEA /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				8E4A59FD2CCDBB7F00941DEA /* Sources */,
+				8E4A59FE2CCDBB7F00941DEA /* Frameworks */,
+				8E4A59FF2CCDBB7F00941DEA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E4A5A062CCDBB7F00941DEA /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8E4A5A022CCDBB7F00941DEA /* Test */,
+			);
+			name = Test;
+			packageProductDependencies = (
+			);
+			productName = Test;
+			productReference = 8E4A5A012CCDBB7F00941DEA /* Test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8E75C2E52CC8903E00B03D14 /* Pedestal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E75C2F42CC8904000B03D14 /* Build configuration list for PBXNativeTarget "Pedestal" */;
@@ -248,9 +297,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					8E4A5A002CCDBB7F00941DEA = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 8E75C2E52CC8903E00B03D14;
+					};
 					8E75C2E52CC8903E00B03D14 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -283,11 +336,19 @@
 				8E75C2E52CC8903E00B03D14 /* Pedestal */,
 				8E8E6D122CCDA9B3006DDAA0 /* PedestalTests */,
 				8E8E6D1F2CCDAAD8006DDAA0 /* Tests */,
+				8E4A5A002CCDBB7F00941DEA /* Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8E4A59FF2CCDBB7F00941DEA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E75C2E42CC8903E00B03D14 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,6 +375,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8E4A59FD2CCDBB7F00941DEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E75C2E22CC8903E00B03D14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,13 +413,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E8E6D232CCDAAD8006DDAA0 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8E4A5A062CCDBB7F00941DEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E75C2E52CC8903E00B03D14 /* Pedestal */;
+			targetProxy = 8E4A5A052CCDBB7F00941DEA /* PBXContainerItemProxy */;
+		};
 		8E8E6D182CCDA9B3006DDAA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8E75C2E52CC8903E00B03D14 /* Pedestal */;
@@ -365,6 +437,44 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		8E4A5A082CCDBB7F00941DEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7X5NAV6824;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedestal.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pedestal.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pedestal";
+			};
+			name = Debug;
+		};
+		8E4A5A092CCDBB7F00941DEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7X5NAV6824;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pedestal.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pedestal.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pedestal";
+			};
+			name = Release;
+		};
 		8E75C2F22CC8904000B03D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,6 +727,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8E4A5A072CCDBB7F00941DEA /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E4A5A082CCDBB7F00941DEA /* Debug */,
+				8E4A5A092CCDBB7F00941DEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8E75C2E12CC8903E00B03D14 /* Build configuration list for PBXProject "Pedestal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

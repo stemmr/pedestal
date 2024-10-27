@@ -41,14 +41,14 @@ struct PostRowView: View {
 }
 
 struct ScrollableTimelineView: View {
-    @EnvironmentObject var postManager: Posts
+    @EnvironmentObject var postViewModel: PostViewModel
     
     init() {}
     
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach($postManager.posts) { $post in
+                ForEach($postViewModel.posts) { $post in
                     VStack {
                         PostRowView(post: $post)
                             .padding(.horizontal)
@@ -63,17 +63,9 @@ struct ScrollableTimelineView: View {
     }
 }
 
-// Preview provider for SwiftUI previews
-//struct TimelineView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScrollableTimelineView()
-//            .environmentObject(Posts.preview)
-//    }
-//}
-
 #Preview {
-    Text("Hello World")
-//    ScrollableTimelineView()
-//        .environmentObject(PostViewModel(topic: "History"))
+    let postViewModel: PostViewModel = PostViewModel(topic: "History")
+    ScrollableTimelineView()
+        .environmentObject(postViewModel)
 }
 

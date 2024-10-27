@@ -9,8 +9,8 @@ import SwiftUI
 
 enum Theme: String {
     case background
-    case secondary
-    case tertiary
+    case secondaryHighlight
+    case tertiaryHighlight
     
     // Text accent colors
     case title

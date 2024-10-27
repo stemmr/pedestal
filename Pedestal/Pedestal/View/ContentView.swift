@@ -16,7 +16,7 @@ struct TopicView: View {
                 Text(topic.title)
             }
             .frame(width: 120, height: 160)
-            .background(Theme.secondary.color)
+            .background(Theme.secondaryHighlight.color)
             .cornerRadius(12)
         }
     }
