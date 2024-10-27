@@ -64,7 +64,7 @@ struct ScrollableTimelineView: View {
 }
 
 #Preview {
-    let postViewModel: PostViewModel = PostViewModel(topic: "History")
+    let postViewModel: PostViewModel = PostViewModel(topic: "history")
     ScrollableTimelineView()
         .environmentObject(postViewModel)
 }
