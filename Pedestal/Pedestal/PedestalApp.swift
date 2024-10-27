@@ -10,7 +10,10 @@ import SwiftUI
 @main
 struct PedestalApp: App {
     var topics: [String] = [
-        "history"
+        "history",
+        "biology",
+        "arthistory",
+        "physics"
     ]
     var postViewModels: [PostViewModel]
     

@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct TopicView: View {
-    let postViewModel: PostViewModel
-    @ObservedObject var topic: Topic
+    @EnvironmentObject var postViewModel: PostViewModel
     let backgroundImage: Image?
     
     init(
-        postViewModel: PostViewModel,
         backgroundImage: Image? = nil
     ) {
-        self.postViewModel = postViewModel
-        self.topic = postViewModel.topic
         self.backgroundImage = backgroundImage
     }
     
@@ -27,8 +23,14 @@ struct TopicView: View {
         ) {
             GeometryReader { geometry in
                 VStack {
-                    Text(topic.title)
+                    Text(postViewModel.topic.title)
                         .font(.headline)
+                        .foregroundStyle(Theme.title.color)
+                        .padding()
+                    Text("\(postViewModel.topic.points)")
+                        .font(.headline)
+                        .foregroundStyle(Theme.title.color)
+
                         .padding()
                 }
                 .frame(width: geometry.size.width, height: geometry.size.width) // Makes it square based on available width
@@ -59,9 +61,8 @@ struct ContentView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(topics) { postViewModel in
                         TopicView(
-                            postViewModel: postViewModel,
                             backgroundImage: Image(postViewModel.topic.title)
-                        )
+                        ).environmentObject(postViewModel)
                     }
                 }
                 .padding()
