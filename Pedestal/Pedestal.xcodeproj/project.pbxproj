@@ -14,6 +14,7 @@
 		8E75C2F82CC890D500B03D14 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75C2F72CC890D500B03D14 /* TimelineView.swift */; };
 		8E8E6D0B2CCD8EE4006DDAA0 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D0A2CCD8EE4006DDAA0 /* PostViewModel.swift */; };
 		8E8E6D0E2CCD9462006DDAA0 /* LocalDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D0D2CCD9462006DDAA0 /* LocalDecoder.swift */; };
+		8E993D142CCE9BE50006AF06 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E6D082CCD8AC5006DDAA0 /* posts.json */; };
 		8EF819EF2CC9DCC900C60229 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819EE2CC9DCC900C60229 /* PostView.swift */; };
 		8EF819F22CC9E79700C60229 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF819F12CC9E79700C60229 /* MarkdownUI */; };
 		8EF819F72CCAA32D00C60229 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819F62CCAA32D00C60229 /* Posts.swift */; };
@@ -353,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E993D142CCE9BE50006AF06 /* posts.json in Resources */,
 				8E75C2F12CC8904000B03D14 /* Preview Assets.xcassets in Resources */,
 				8E75C2EE2CC8904000B03D14 /* Assets.xcassets in Resources */,
 			);
@@ -617,6 +619,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pedestal.Pedestal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -646,6 +652,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pedestal.Pedestal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -16,7 +16,7 @@ class PostViewModel: ObservableObject {
     
     init(topic: String) {
         self.topic = topic
-        if network {
+        if !network {
             let data = PostViewModel.loadFromJSON(topic: topic)
             self.posts = data.posts
             self.questions = data.questions
@@ -26,14 +26,15 @@ class PostViewModel: ObservableObject {
     }
     
     static func loadFromJSON(topic: String) -> (posts: [Post], questions: [any Question]) {
-//        do {
-//            let response = try LocalDecoder.decodeJSON(file: topic)
+        do {
+            let response = try LocalDecoder.decodeJSON(file: "posts")
+            print("Decoded content from JSON File")
 //            let posts = response.posts.map { postResponse in
 //                Post(title: postResponse.title,
 //                     summary: postResponse.summary,
 //                     content: postResponse.content)
 //            }
-//            
+//            print("Loaded Posts from JSON")
 //            let questions = response.posts.flatMap { postResponse in
 //                postResponse.questions.map { questionResponse in
 //                    MultipleChoiceQuestion(
@@ -45,13 +46,12 @@ class PostViewModel: ObservableObject {
 //                    )
 //                }
 //            }
-//            
 //            return (posts: posts, questions: questions)
-//        } catch {
-//            print("Error loading JSON: \(error)")
-//            return (posts: [], questions: [])
-//        }
-        return (posts: [], questions: [])
+            return (posts: [], questions: [])
+        } catch {
+            print("Error loading JSON: \(error)")
+            return (posts: [], questions: [])
+        }
     }
     
     func getNextQuestion() {

@@ -7,7 +7,12 @@
 
 import Foundation
 
+struct ContentResponse: Decodable {
+    let content: [TopicResponse]
+}
+
 struct TopicResponse: Decodable {
+    let topic: String
     let points: Int
     let posts: [PostResponse]
 }
@@ -28,7 +33,8 @@ struct QuestionResponse: Decodable {
 
 public class LocalDecoder {
     
-    static func decodeJSON(file: String) throws -> TopicResponse {
+    static func decodeJSON(file: String) throws -> ContentResponse {
+        print("Decoding JSON file \(file).json")
         guard let path = Bundle.main.path(forResource: file, ofType: "json") else {
             throw NSError(domain: "LocalDecoder", code: 1, userInfo: [NSLocalizedDescriptionKey: "File not found"])
         }
@@ -36,7 +42,7 @@ public class LocalDecoder {
         let url = URL(fileURLWithPath: path)
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
-        return try decoder.decode(TopicResponse.self, from: data)
+        return try decoder.decode(ContentResponse.self, from: data)
     }
     
 }
