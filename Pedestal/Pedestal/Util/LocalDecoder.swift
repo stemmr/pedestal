@@ -22,6 +22,7 @@ struct PostResponse: Decodable {
     let summary: String
     let content: String
     let questions: [QuestionResponse]
+    let bookmarked: Bool?
 }
 
 struct QuestionResponse: Decodable {

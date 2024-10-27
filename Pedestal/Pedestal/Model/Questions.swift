@@ -21,7 +21,7 @@ struct MultipleChoiceQuestion: Question {
     let options: [String]
     let correctOptionIndex: Int
     let points: Int
-    let answered: Bool
+    var answered: Bool
     
     init(
         id: UUID = UUID(),
@@ -39,6 +39,11 @@ struct MultipleChoiceQuestion: Question {
         self.correctOptionIndex = correctOptionIndex
         self.points = points
         self.answered = answered
+    }
+    
+    mutating func answer(optionIndex: Int) -> Bool {
+        self.answered = true
+        return optionIndex == correctOptionIndex 
     }
 }
 

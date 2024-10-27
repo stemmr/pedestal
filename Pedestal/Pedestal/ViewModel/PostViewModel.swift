@@ -51,7 +51,8 @@ class PostViewModel: Identifiable, ObservableObject {
                 let post = Post(
                     title: postResponse.title,
                     summary: postResponse.summary,
-                    content: postResponse.content
+                    content: postResponse.content,
+                    bookmarked: postResponse.bookmarked ?? false
                 )
                 let postQuestions: [MultipleChoiceQuestion] = postResponse.questions.map { questionResponse in
                     MultipleChoiceQuestion(
@@ -72,8 +73,32 @@ class PostViewModel: Identifiable, ObservableObject {
         }
     }
     
-    func getNextQuestion() {
-        
+    var bookmarkedPosts: [Post] {
+        self.posts.filter { $0.bookmarked }
+    }
+    
+    func currentQuestion() -> (any Question)? {
+        let bookmarkedIds = Set(self.bookmarkedPosts.map { $0.id })
+        for question in self.questions {
+            if bookmarkedIds.contains(question.postId) && !question.answered {
+                return question
+            }
+        }
+        return nil
+    }
+    
+    func answerMultipleChoiceQuestion(questionId: UUID, optionIndex: Int) -> Bool? {
+        print("Answering  Multiple Choice Question: \(questionId) with \(optionIndex)")
+        if let index = self.questions.firstIndex(where: {$0.id as! UUID == questionId}) {
+            if var mcq = self.questions[index] as? MultipleChoiceQuestion {
+                print("MCQ: \(mcq)")
+                let answer = mcq.answer(optionIndex: optionIndex)
+                print("MCQ(updated): \(mcq)")
+                self.questions[index] = mcq
+                return answer
+            }
+        }
+        return nil
     }
     
 }

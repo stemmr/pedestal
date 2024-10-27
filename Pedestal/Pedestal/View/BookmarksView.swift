@@ -10,15 +10,11 @@ import SwiftUI
 struct BookmarksView: View {
     @EnvironmentObject var postViewModel: PostViewModel
     
-    var bookmarkedPosts: [Post] {
-        postViewModel.posts.filter { $0.bookmarked }
-    }
-    
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach(bookmarkedPosts.indices, id: \.self) { index in
-                    if let originalIndex = postViewModel.posts.firstIndex(where: { $0.id == bookmarkedPosts[index].id }) {
+                ForEach(postViewModel.bookmarkedPosts.indices, id: \.self) { index in
+                    if let originalIndex = postViewModel.posts.firstIndex(where: { $0.id == postViewModel.bookmarkedPosts[index].id }) {
                         VStack {
                             PostRowView(post: $postViewModel.posts[originalIndex])
                                 .padding(.horizontal)

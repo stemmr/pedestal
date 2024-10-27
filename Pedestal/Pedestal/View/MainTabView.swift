@@ -29,4 +29,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
+        .environmentObject(PostViewModel(topic: "history"))
 }
