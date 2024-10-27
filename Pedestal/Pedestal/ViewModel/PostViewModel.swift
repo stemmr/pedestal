@@ -91,11 +91,12 @@ class PostViewModel: Identifiable, ObservableObject {
         print("Answering  Multiple Choice Question: \(questionId) with \(optionIndex)")
         if let index = self.questions.firstIndex(where: {$0.id as! UUID == questionId}) {
             if var mcq = self.questions[index] as? MultipleChoiceQuestion {
-                print("MCQ: \(mcq)")
-                let answer = mcq.answer(optionIndex: optionIndex)
-                print("MCQ(updated): \(mcq)")
+                let correct = mcq.answer(optionIndex: optionIndex)
                 self.questions[index] = mcq
-                return answer
+                if correct {
+                    self.topic.points += mcq.points
+                }
+                return correct
             }
         }
         return nil

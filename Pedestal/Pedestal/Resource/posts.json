@@ -180,6 +180,343 @@
                             ]
                         }
                     ]
+        },
+        {
+            "topic": "biology",
+            "points": 0,
+            "posts": [
+                {
+                    "title": "DNA: The Blueprint of Life",
+                    "summary": "The discovery and understanding of DNA's structure and function revolutionized our understanding of life and heredity.",
+                    "content": "# DNA: The Blueprint of Life\n\n## Overview\n**DNA** (Deoxyribonucleic acid) is the hereditary material in humans and almost all living organisms. The information in DNA is stored as a code made up of four chemical bases: adenine (A), guanine (G), cytosine (C), and thymine (T).\n\n## Structure\n\n### Double Helix\n* Two strands coiled around each other\n* Sugar-phosphate backbone\n* Complementary base pairing\n* 3.4 angstroms between base pairs\n\n### Chemical Components\n1. **Nucleotides**\n   * Deoxyribose sugar\n   * Phosphate group\n   * Nitrogenous base\n\n2. **Base Pairing**\n   * A pairs with T\n   * C pairs with G\n   * Hydrogen bonding\n\n## Function\n\n### Genetic Information\n* Gene storage\n* Protein coding\n* Regulatory sequences\n* Non-coding regions\n\n### Replication\n* Semi-conservative process\n* DNA polymerase action\n* Leading/lagging strands\n* Proofreading mechanisms\n\n## Discovery History\n\n### Key Contributors\n* Watson and Crick\n* Rosalind Franklin\n* Maurice Wilkins\n* Erwin Chargaff\n\n### Major Milestones\n* X-ray crystallography\n* Base-pair ratios\n* Double helix model\n* Central dogma establishment\n\n## Applications\n\n### Medical Use\n* Genetic testing\n* Disease diagnosis\n* Gene therapy\n* Personalized medicine\n\n### Forensic Science\n* DNA profiling\n* Paternity testing\n* Species identification\n* Evolutionary studies\n\n## Modern Research\n\n### Technological Advances\n* DNA sequencing\n* PCR techniques\n* CRISPR technology\n* Synthetic DNA\n\n## See Also\n* RNA\n* Genetics\n* Molecular Biology\n* Biotechnology\n\n## References\n1. Watson, James D. (1968). \"The Double Helix\"\n2. Berg, Jeremy M. et al. (2015). \"Biochemistry\"\n3. Alberts, Bruce et al. (2014). \"Molecular Biology of the Cell\"",
+                    "questions": [
+                        {
+                            "question": "What are the four chemical bases found in DNA?",
+                            "options": [
+                                "Alanine, Glycine, Cytosine, Thymine",
+                                "Adenine, Guanine, Cytosine, Thymine",
+                                "Adenine, Guanine, Chlorine, Thiamine",
+                                "Alanine, Glucose, Cysteine, Threonine"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 10
+                        },
+                        {
+                            "question": "What type of bonding occurs between complementary base pairs in DNA?",
+                            "options": [
+                                "Covalent bonding",
+                                "Ionic bonding",
+                                "Hydrogen bonding",
+                                "Van der Waals forces"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 15
+                        }
+                    ]
+                },
+                {
+                    "title": "Cellular Respiration: Powering Life",
+                    "summary": "How cells convert nutrients into usable energy through a series of complex biochemical processes.",
+                    "content": "# Cellular Respiration\n\n## Overview\n**Cellular respiration** is the metabolic process by which cells convert nutrients into ATP (adenosine triphosphate), the energy currency of life. This process occurs in most living organisms and involves multiple pathways.\n\n## Major Pathways\n\n### Glycolysis\n* Occurs in cytoplasm\n* Glucose breakdown\n* Net 2 ATP produced\n* Pyruvate formation\n\n### Citric Acid Cycle\n1. **Location**\n   * Mitochondrial matrix\n   * Inner membrane involvement\n   * Enzyme complexes\n\n2. **Steps**\n   * Acetyl-CoA entry\n   * NADH production\n   * FADH2 generation\n   * CO2 release\n\n## Electron Transport Chain\n\n### Components\n* Complex I-IV\n* ATP synthase\n* Proton gradient\n* Oxygen as final acceptor\n\n### Energy Production\n* Chemiosmosis\n* ATP synthesis\n* Water formation\n* Energy transfer\n\n## Types of Respiration\n\n### Aerobic\n* Requires oxygen\n* Most efficient\n* Complete glucose breakdown\n* Maximum ATP yield\n\n### Anaerobic\n* Fermentation\n* Lactic acid pathway\n* Alcohol fermentation\n* Limited ATP production\n\n## Regulation\n\n### Metabolic Control\n* Enzyme regulation\n* Substrate availability\n* Energy demand\n* Oxygen levels\n\n### Environmental Factors\n* Temperature\n* pH\n* Nutrient availability\n* Cellular conditions\n\n## Medical Significance\n\n### Disorders\n* Mitochondrial diseases\n* Metabolic disorders\n* Energy production defects\n* Genetic conditions\n\n## See Also\n* Photosynthesis\n* ATP synthesis\n* Metabolism\n* Mitochondria\n\n## References\n1. Nelson, David L. and Cox, Michael M. (2017). \"Lehninger Principles of Biochemistry\"\n2. Berg, Jeremy M. et al. (2015). \"Biochemistry\"\n3. Voet, Donald and Voet, Judith G. (2016). \"Biochemistry\"",
+                    "questions": [
+                        {
+                            "question": "Where does the citric acid cycle take place in the cell?",
+                            "options": [
+                                "Cytoplasm",
+                                "Mitochondrial matrix",
+                                "Cell membrane",
+                                "Endoplasmic reticulum"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 10
+                        },
+                        {
+                            "question": "What is the final electron acceptor in the electron transport chain?",
+                            "options": [
+                                "Carbon dioxide",
+                                "Water",
+                                "Oxygen",
+                                "NADH"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 15
+                        }
+                    ]
+                },
+                {
+                    "title": "Evolution: The Process of Natural Selection",
+                    "summary": "Darwin's theory of evolution by natural selection explains the diversity of life and how species change over time.",
+                    "content": "# Evolution by Natural Selection\n\n## Overview\n**Evolution** through natural selection is the fundamental process by which living organisms change over generations. Proposed by Charles Darwin, this theory explains both the diversity of life and the adaptations of organisms.\n\n## Key Concepts\n\n### Natural Selection\n* Variation in populations\n* Differential survival\n* Heredity of traits\n* Environmental pressure\n\n### Evidence Sources\n1. **Fossil Record**\n   * Transitional forms\n   * Dating methods\n   * Geological context\n\n2. **Comparative Anatomy**\n   * Homologous structures\n   * Vestigial organs\n   * Embryological development\n\n## Mechanisms\n\n### Genetic Variation\n* Mutation\n* Genetic drift\n* Gene flow\n* Sexual reproduction\n\n### Selection Types\n* Directional selection\n* Stabilizing selection\n* Disruptive selection\n* Sexual selection\n\n## Speciation\n\n### Process\n* Reproductive isolation\n* Genetic divergence\n* Adaptive radiation\n* Allopatric speciation\n\n### Examples\n* Darwin's finches\n* Ring species\n* Industrial melanism\n* Antibiotic resistance\n\n## Modern Synthesis\n\n### Integration\n* Mendelian genetics\n* Population genetics\n* Molecular biology\n* Developmental biology\n\n## Applications\n\n### Medicine\n* Antibiotic resistance\n* Viral evolution\n* Cancer treatment\n* Drug development\n\n### Conservation\n* Species preservation\n* Habitat protection\n* Genetic diversity\n* Environmental change\n\n## See Also\n* Genetics\n* Population biology\n* Adaptation\n* Phylogenetics\n\n## References\n1. Darwin, Charles (1859). \"On the Origin of Species\"\n2. Mayr, Ernst (1982). \"The Growth of Biological Thought\"\n3. Futuyma, Douglas J. (2017). \"Evolution\"",
+                    "questions": [
+                        {
+                            "question": "What are the main sources of genetic variation in populations?",
+                            "options": [
+                                "Only mutation",
+                                "Mutation and genetic drift",
+                                "Mutation, genetic drift, and gene flow",
+                                "Natural selection only"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 15
+                        },
+                        {
+                            "question": "Which type of selection results in extreme traits being favored over intermediate ones?",
+                            "options": [
+                                "Directional selection",
+                                "Stabilizing selection",
+                                "Disruptive selection",
+                                "Sexual selection"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 20
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "arthistory",
+            "points": 0,
+            "posts": [
+                {
+                    "title": "Impressionism: Revolution in Light and Color",
+                    "summary": "How a radical artistic movement in 19th century Paris transformed the course of modern art.",
+                    "content": "# Impressionism\n\n## Overview\n**Impressionism** (1867-1886) was a revolutionary art movement that began in Paris, characterized by its emphasis on capturing the changing qualities of light, visible brushstrokes, and everyday subject matter. This movement fundamentally changed the course of Western art.\n\n## Origins\n\n### Historical Context\n* Academic art dominance\n* Salon system\n* Photography's influence\n* Urbanization of Paris\n\n### Technical Developments\n1. **Materials**\n   * Synthetic pigments\n   * Portable paint tubes\n   * New brush types\n   * Canvas preparations\n\n2. **Techniques**\n   * En plein air painting\n   * Broken color\n   * Visible brushwork\n   * Optical mixing\n\n## Key Artists\n\n### Major Figures\n* Claude Monet\n* Pierre-Auguste Renoir\n* Edgar Degas\n* Camille Pissarro\n* Berthe Morisot\n\n### Distinctive Styles\n* Monet's light studies\n* Degas' urban scenes\n* Renoir's figure paintings\n* Pissarro's landscapes\n\n## Artistic Innovation\n\n### Color Theory\n* Complementary colors\n* Shadow theory\n* Light effects\n* Natural observation\n\n### Subject Matter\n* Modern life\n* Urban leisure\n* Rural scenes\n* Domestic life\n\n## Cultural Impact\n\n### Social Context\n* Rise of middle class\n* Industrial revolution\n* Café culture\n* Urban development\n\n### Critical Reception\n* Initial rejection\n* Critical debates\n* Public scandals\n* Eventual acceptance\n\n## Legacy\n\n### Influence on Movements\n* Post-Impressionism\n* Pointillism\n* Fauvism\n* Modern art\n\n### Contemporary Impact\n* Color theory\n* Plein air practice\n* Modern exhibitions\n* Art market changes\n\n## Major Works\n\n### Iconic Paintings\n* Monet's \"Impression, Sunrise\"\n* Renoir's \"Luncheon of the Boating Party\"\n* Degas' \"The Ballet Class\"\n* Morisot's \"The Cradle\"\n\n## See Also\n* Post-Impressionism\n* Modern Art\n* French Art\n* Color Theory\n\n## References\n1. Rewald, John (1973). \"The History of Impressionism\"\n2. Thomson, Belinda (2000). \"Impressionism: Origins, Practice, Reception\"\n3. Bomford, David (1990). \"Impressionism: Art in the Making\"",
+                    "questions": [
+                        {
+                            "question": "Which painting gave the Impressionist movement its name?",
+                            "options": [
+                                "The Ballet Class",
+                                "The Cradle",
+                                "Impression, Sunrise",
+                                "Luncheon of the Boating Party"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 10
+                        },
+                        {
+                            "question": "What technical innovation made outdoor painting more practical for Impressionists?",
+                            "options": [
+                                "New canvas types",
+                                "Portable paint tubes",
+                                "Synthetic brushes",
+                                "Glass palettes"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 15
+                        }
+                    ]
+                },
+                {
+                    "title": "Renaissance Art: The Revival of Classical Culture",
+                    "summary": "The revolutionary period of European art that redefined visual culture through classical revival and innovation.",
+                    "content": "# Renaissance Art\n\n## Overview\n**Renaissance Art** (14th-17th centuries) marked a cultural rebirth that revolutionized European visual arts through classical revival, scientific observation, and technical innovation. Beginning in Italy, it spread throughout Europe.\n\n## Innovations\n\n### Technical Advances\n* Linear perspective\n* Sfumato technique\n* Oil painting\n* Anatomical accuracy\n\n### Theoretical Developments\n1. **Perspective**\n   * Mathematical principles\n   * Vanishing point\n   * Foreshortening\n   * Aerial perspective\n\n2. **Color Theory**\n   * Chiaroscuro\n   * Color harmony\n   * Naturalistic palettes\n   * Glazing techniques\n\n## Major Artists\n\n### Early Renaissance\n* Giotto\n* Masaccio\n* Fra Angelico\n* Botticelli\n\n### High Renaissance\n* Leonardo da Vinci\n* Michelangelo\n* Raphael\n* Titian\n\n## Artistic Elements\n\n### Subject Matter\n* Religious scenes\n* Mythology\n* Portraiture\n* Historical events\n\n### Patronage\n* Church commissions\n* Medici family\n* Merchant patrons\n* Papal patronage\n\n## Regional Styles\n\n### Italian Renaissance\n* Florentine style\n* Venetian school\n* Roman influence\n* Mannerism\n\n### Northern Renaissance\n* Flemish technique\n* German expression\n* Dutch realism\n* French influence\n\n## Legacy\n\n### Influence\n* Academic tradition\n* Scientific illustration\n* Architectural design\n* Modern figurative art\n\n## Major Works\n\n### Masterpieces\n* \"Mona Lisa\"\n* Sistine Chapel ceiling\n* \"School of Athens\"\n* \"Birth of Venus\"\n\n## See Also\n* Gothic Art\n* Mannerism\n* Baroque Art\n* Humanism\n\n## References\n1. Vasari, Giorgio. \"Lives of the Most Excellent Painters, Sculptors, and Architects\"\n2. Janson, H.W. \"History of Art\"\n3. Clark, Kenneth. \"The Civilization of the Renaissance in Italy\"",
+                    "questions": [
+                        {
+                            "question": "Which Renaissance artist painted the Sistine Chapel ceiling?",
+                            "options": [
+                                "Leonardo da Vinci",
+                                "Raphael",
+                                "Michelangelo",
+                                "Botticelli"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 10
+                        },
+                        {
+                            "question": "What painting technique involves subtle gradations of light and shadow?",
+                            "options": [
+                                "Linear perspective",
+                                "Sfumato",
+                                "Foreshortening",
+                                "Impasto"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 20
+                        }
+                    ]
+                },
+                {
+                    "title": "Modern Art: Breaking Traditional Boundaries",
+                    "summary": "The radical transformation of art from the late 19th through the 20th century, challenging conventional artistic expression.",
+                    "content": "# Modern Art\n\n## Overview\n**Modern Art** (late 19th-20th century) represents a dramatic shift from traditional art-making, characterized by experimentation, abstraction, and conceptual approaches. This period saw rapid succession of revolutionary movements.\n\n## Major Movements\n\n### Early Modern\n* Post-Impressionism\n* Fauvism\n* Cubism\n* Expressionism\n\n### Mid-Century\n1. **Abstract Movements**\n   * Abstract Expressionism\n   * Color Field painting\n   * Minimalism\n   * Op Art\n\n2. **Conceptual Developments**\n   * Dada\n   * Surrealism\n   * Pop Art\n   * Conceptual Art\n\n## Key Artists\n\n### Pioneers\n* Pablo Picasso\n* Henri Matisse\n* Marcel Duchamp\n* Wassily Kandinsky\n\n### Abstract Expressionists\n* Jackson Pollock\n* Willem de Kooning\n* Mark Rothko\n* Franz Kline\n\n## Artistic Innovation\n\n### New Techniques\n* Collage\n* Assemblage\n* Ready-mades\n* Action painting\n\n### Materials\n* Industrial materials\n* Found objects\n* Mixed media\n* New synthetic paints\n\n## Cultural Context\n\n### Historical Events\n* World Wars\n* Great Depression\n* Cold War\n* Technological revolution\n\n### Social Changes\n* Urbanization\n* Mass media\n* Consumer culture\n* Political movements\n\n## Theoretical Foundations\n\n### Philosophy\n* Existentialism\n* Psychoanalysis\n* Marxism\n* Postmodernism\n\n## Major Works\n\n### Landmark Pieces\n* Picasso's \"Les Demoiselles d'Avignon\"\n* Duchamp's \"Fountain\"\n* Pollock's \"Number 1A, 1948\"\n* Warhol's \"Campbell's Soup Cans\"\n\n## See Also\n* Contemporary Art\n* Postmodern Art\n* Art Theory\n* Abstract Art\n\n## References\n1. Greenberg, Clement. \"Art and Culture\"\n2. Hughes, Robert. \"The Shock of the New\"\n3. Foster, Hal. \"Art Since 1900\"",
+                    "questions": [
+                        {
+                            "question": "Who is credited with creating the first 'ready-made' artwork?",
+                            "options": [
+                                "Pablo Picasso",
+                                "Marcel Duchamp",
+                                "Henri Matisse",
+                                "Jackson Pollock"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 15
+                        },
+                        {
+                            "question": "Which art movement was characterized by the use of bold, unrealistic colors?",
+                            "options": [
+                                "Cubism",
+                                "Minimalism",
+                                "Fauvism",
+                                "Surrealism"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 20
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "topic": "physics",
+            "points": 0,
+            "posts": [
+                {
+                    "title": "Quantum Mechanics: The Physics of the Very Small",
+                    "summary": "How quantum mechanics revolutionized our understanding of matter and energy at the atomic scale.",
+                    "content": "# Quantum Mechanics\n\n## Overview\n**Quantum mechanics** is a fundamental theory in physics that describes nature at the smallest scales of energy levels of atoms and subatomic particles. It provides a mathematical description of wave-particle duality and quantum effects.\n\n## Key Concepts\n\n### Wave-Particle Duality\n* De Broglie wavelength\n* Double-slit experiment\n* Wave functions\n* Particle behavior\n\n### Uncertainty Principle\n1. **Heisenberg's Principle**\n   * Position-momentum uncertainty\n   * Energy-time uncertainty\n   * Measurement effects\n   * Mathematical formulation\n\n2. **Quantum States**\n   * Superposition\n   * Quantum numbers\n   * Spin states\n   * Electron configurations\n\n## Mathematical Framework\n\n### Schrödinger Equation\n* Time-dependent form\n* Time-independent form\n* Wave functions\n* Probability interpretation\n\n### Operators\n* Momentum operator\n* Position operator\n* Energy operator\n* Angular momentum\n\n## Applications\n\n### Technology\n* Transistors\n* Quantum computing\n* Quantum cryptography\n* Quantum sensors\n\n### Scientific Impact\n* Atomic theory\n* Molecular bonding\n* Solid state physics\n* Quantum field theory\n\n## See Also\n* Wave mechanics\n* Matrix mechanics\n* Copenhagen interpretation\n* Quantum entanglement\n\n## References\n1. Griffiths, David J. \"Introduction to Quantum Mechanics\"\n2. Feynman, Richard P. \"The Feynman Lectures on Physics\"\n3. Cohen-Tannoudji, Claude. \"Quantum Mechanics\"",
+                    "questions": [
+                        {
+                            "question": "Who proposed the wave-particle duality of matter?",
+                            "options": [
+                                "Einstein",
+                                "De Broglie",
+                                "Schrödinger",
+                                "Heisenberg"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 10
+                        },
+                        {
+                            "question": "What fundamental principle states that we cannot simultaneously know both the position and momentum of a particle with arbitrary precision?",
+                            "options": [
+                                "Wave-particle duality",
+                                "Superposition principle",
+                                "Heisenberg uncertainty principle",
+                                "Pauli exclusion principle"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 15
+                        }
+                    ]
+                },
+                {
+                    "title": "Special Relativity: Space, Time, and Motion",
+                    "summary": "Einstein's theory that transformed our understanding of space, time, and the relationship between mass and energy.",
+                    "content": "# Special Relativity\n\n## Overview\n**Special relativity**, proposed by Albert Einstein in 1905, fundamentally changed our understanding of space and time. The theory is based on two postulates: the laws of physics are the same in all inertial reference frames, and the speed of light is constant.\n\n## Fundamental Principles\n\n### Postulates\n* Principle of relativity\n* Constancy of light speed\n* Inertial reference frames\n* Simultaneity is relative\n\n### Key Effects\n1. **Time Dilation**\n   * Moving clocks run slower\n   * Twin paradox\n   * Proper time\n   * Time dilation factor\n\n2. **Length Contraction**\n   * Lorentz contraction\n   * Proper length\n   * Spatial dimensions\n   * Relativistic measurement\n\n## Mathematical Framework\n\n### Lorentz Transformations\n* Space-time coordinates\n* Velocity addition\n* Relativistic momentum\n* Four-vectors\n\n### Mass-Energy Equivalence\n* E = mc²\n* Rest mass\n* Relativistic mass\n* Binding energy\n\n## Applications\n\n### Practical Uses\n* GPS systems\n* Particle accelerators\n* Nuclear energy\n* Space travel\n\n### Modern Physics\n* Quantum field theory\n* Nuclear physics\n* Particle physics\n* Cosmology\n\n## See Also\n* General relativity\n* Spacetime\n* Mass-energy equivalence\n* Lorentz transformation\n\n## References\n1. Einstein, Albert. \"Relativity: The Special and General Theory\"\n2. Taylor, Edwin F. \"Spacetime Physics\"\n3. Rindler, Wolfgang. \"Introduction to Special Relativity\"",
+                    "questions": [
+                        {
+                            "question": "What is Einstein's famous equation for mass-energy equivalence?",
+                            "options": [
+                                "E = h/λ",
+                                "E = mc²",
+                                "E = ½mv²",
+                                "E = kx²"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 5
+                        },
+                        {
+                            "question": "Which effect causes moving objects to appear shorter in their direction of motion?",
+                            "options": [
+                                "Time dilation",
+                                "Mass increase",
+                                "Length contraction",
+                                "Gravitational lensing"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 10
+                        }
+                    ]
+                },
+                {
+                    "title": "Thermodynamics: The Science of Heat and Energy",
+                    "summary": "The fundamental laws governing heat, energy, and the behavior of matter at different temperatures.",
+                    "content": "# Thermodynamics\n\n## Overview\n**Thermodynamics** is the branch of physics dealing with heat, work, temperature, and the interrelation between heat and other forms of energy. It describes how thermal energy is converted to and from other forms of energy and how it affects matter.\n\n## Laws of Thermodynamics\n\n### Zeroth Law\n* Temperature equilibrium\n* Transitivity principle\n* Thermal equilibrium\n* Temperature measurement\n\n### First Law\n* Energy conservation\n* Internal energy\n* Heat transfer\n* Work done\n\n### Second Law\n* Entropy increase\n* Heat engines\n* Reversible processes\n* Perpetual motion\n\n### Third Law\n* Absolute zero\n* Perfect crystals\n* Entropy minimum\n* Unattainability principle\n\n## Applications\n\n### Engineering\n* Heat engines\n* Refrigeration\n* Power generation\n* Climate control\n\n### Natural Processes\n* Weather patterns\n* Ocean currents\n* Geological processes\n* Chemical reactions\n\n## See Also\n* Statistical mechanics\n* Heat transfer\n* Entropy\n* Temperature\n\n## References\n1. Zemansky, Mark W. \"Heat and Thermodynamics\"\n2. Callen, Herbert B. \"Thermodynamics\"\n3. Fermi, Enrico. \"Thermodynamics\"",
+                    "questions": [
+                        {
+                            "question": "Which law of thermodynamics states that energy cannot be created or destroyed?",
+                            "options": [
+                                "Zeroth Law",
+                                "First Law",
+                                "Second Law",
+                                "Third Law"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 10
+                        },
+                        {
+                            "question": "What physical quantity always increases in an isolated system according to the Second Law?",
+                            "options": [
+                                "Temperature",
+                                "Pressure",
+                                "Entropy",
+                                "Energy"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 15
+                        }
+                    ]
+                },
+                {
+                    "title": "Classical Mechanics: Motion and Forces",
+                    "summary": "Newton's laws and principles governing the motion of macroscopic objects under the influence of forces.",
+                    "content": "# Classical Mechanics\n\n## Overview\n**Classical mechanics** describes the motion of macroscopic objects under the influence of forces. Based on Newton's laws of motion and universal gravitation, it provides the foundation for understanding everyday physical phenomena.\n\n## Newton's Laws\n\n### First Law\n* Inertia\n* Reference frames\n* Equilibrium\n* Force definition\n\n### Second Law\n* F = ma\n* Momentum\n* Impulse\n* Vector nature\n\n### Third Law\n* Action-reaction\n* Conservation laws\n* Force pairs\n* Applications\n\n## Conservation Laws\n\n### Energy\n* Kinetic energy\n* Potential energy\n* Work-energy theorem\n* Power\n\n### Momentum\n* Linear momentum\n* Angular momentum\n* Collisions\n* Center of mass\n\n## Applications\n\n### Practical Uses\n* Engineering\n* Sports science\n* Transportation\n* Construction\n\n## See Also\n* Dynamics\n* Kinematics\n* Statics\n* Rotational motion\n\n## References\n1. Marion, Jerry B. \"Classical Dynamics\"\n2. Goldstein, Herbert. \"Classical Mechanics\"\n3. Taylor, John R. \"Classical Mechanics\"",
+                    "questions": [
+                        {
+                            "question": "What is Newton's Second Law of Motion?",
+                            "options": [
+                                "Objects at rest stay at rest",
+                                "F = ma",
+                                "Every action has an equal and opposite reaction",
+                                "Energy is conserved"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 5
+                        },
+                        {
+                            "question": "Which quantity is always conserved in a closed system?",
+                            "options": [
+                                "Velocity",
+                                "Acceleration",
+                                "Momentum",
+                                "Force"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 10
+                        }
+                    ]
+                },
+                {
+                    "title": "Electromagnetism: Forces and Fields",
+                    "summary": "The unified theory of electricity and magnetism that explains electromagnetic forces and radiation.",
+                    "content": "# Electromagnetism\n\n## Overview\n**Electromagnetism** is one of the four fundamental forces of nature, unifying electric and magnetic phenomena. Maxwell's equations provide a complete mathematical description of electromagnetic fields and their interactions with matter.\n\n## Maxwell's Equations\n\n### Gauss's Law\n* Electric flux\n* Charge distribution\n* Electric field\n* Closed surfaces\n\n### Faraday's Law\n* Magnetic induction\n* EMF\n* Changing fields\n* Lenz's law\n\n### Ampère's Law\n* Magnetic fields\n* Current\n* Displacement current\n* Magnetic circuits\n\n## Applications\n\n### Technology\n* Electric motors\n* Generators\n* Communications\n* Electronics\n\n### Wave Phenomena\n* Light\n* Radio waves\n* Microwaves\n* X-rays\n\n## See Also\n* Electric field\n* Magnetic field\n* Electromagnetic radiation\n* Maxwell's equations\n\n## References\n1. Griffiths, David J. \"Introduction to Electrodynamics\"\n2. Jackson, John D. \"Classical Electrodynamics\"\n3. Purcell, Edward M. \"Electricity and Magnetism\"",
+                    "questions": [
+                        {
+                            "question": "Who unified the theories of electricity and magnetism?",
+                            "options": [
+                                "Newton",
+                                "Maxwell",
+                                "Einstein",
+                                "Faraday"
+                            ],
+                            "correctOptionIndex": 1,
+                            "points": 10
+                        },
+                        {
+                            "question": "What law relates a changing magnetic field to an induced electric field?",
+                            "options": [
+                                "Gauss's Law",
+                                "Ampère's Law",
+                                "Faraday's Law",
+                                "Coulomb's Law"
+                            ],
+                            "correctOptionIndex": 2,
+                            "points": 15
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

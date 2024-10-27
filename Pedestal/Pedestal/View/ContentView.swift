@@ -10,24 +10,37 @@ import SwiftUI
 struct TopicView: View {
     let postViewModel: PostViewModel
     @ObservedObject var topic: Topic
+    let backgroundImage: Image?
     
     init(
-        postViewModel: PostViewModel
+        postViewModel: PostViewModel,
+        backgroundImage: Image? = nil
     ) {
         self.postViewModel = postViewModel
         self.topic = postViewModel.topic
+        self.backgroundImage = backgroundImage
     }
     
     var body: some View {
         NavigationLink(destination: MainTabView()
             .environmentObject(self.postViewModel)
         ) {
-            VStack {
-                Text(topic.title)
+            GeometryReader { geometry in
+                VStack {
+                    Text(topic.title)
+                        .font(.headline)
+                        .padding()
+                }
+                .frame(width: geometry.size.width, height: geometry.size.width) // Makes it square based on available width
+                .background(
+                    backgroundImage?
+                        .resizable()
+                        .scaledToFill()
+                        .overlay(Color.black.opacity(0.3)) // Darkens image for text readability
+                )
+                .cornerRadius(12)
             }
-            .frame(width: 120, height: 160)
-            .background(Theme.secondaryHighlight.color)
-            .cornerRadius(12)
+            .aspectRatio(1, contentMode: .fit) // Maintains square aspect ratio
         }
     }
 }
@@ -45,7 +58,10 @@ struct ContentView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(topics) { postViewModel in
-                        TopicView(postViewModel: postViewModel)
+                        TopicView(
+                            postViewModel: postViewModel,
+                            backgroundImage: Image(postViewModel.topic.title)
+                        )
                     }
                 }
                 .padding()
@@ -57,7 +73,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let postViewModel: PostViewModel = PostViewModel(topic: "history")
-        ContentView(topics: [postViewModel])
+        ContentView(topics: [
+            PostViewModel(topic: "history"),
+            PostViewModel(topic: "biology"),
+            PostViewModel(topic: "arthistory"),
+            PostViewModel(topic: "physics")
+        ])
     }
 }

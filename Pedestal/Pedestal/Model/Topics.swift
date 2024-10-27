@@ -10,7 +10,7 @@ import Foundation
 class Topic: Identifiable, ObservableObject {
     let id: UUID
     let title: String
-    let points: Int
+    var points: Int
     
     init(
         id: UUID = UUID(),
