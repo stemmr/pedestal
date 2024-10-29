@@ -9,4 +9,12 @@
 - Add Custom Styling to Back Button
 - Make it possible to distribute app on TestFlight
 
-### Backend
+### Backend Options
+- AWS SAM
+  - No support for CDK
+- AWS Amplify
+  - Primarily TypeScript
+- SupaBase
+  - Not on AWS, hard to expand
+- FireBase
+  - Not on AWS, hard to expand
