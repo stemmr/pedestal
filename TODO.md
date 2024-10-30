@@ -7,12 +7,16 @@
 - Make QuestionView show whether Question was answered correctly
 - Make QuestionView show number of points for a given question 
 - Add Custom Styling to Back Button
-- Make it possible to distribute app on TestFlight
+- Test out TimelineView with images included
 
 ### Backend
-Use FireBase
+- Add support for retrieving documents using Firebase
 - Design API more thoughtfully
-- Generate API definition / Swift Client using OpenAPI
-- Add Database to SAM Deployment
-- Add authentication to API
-  - Cognito User Pools
+- Add Email Authentication
+  - Sign Up
+  - Log In
+  - Delete Account
+  - (Forgot Password?)
+- Add Apple and GitHub Auth options (and potentially X)
+
+- Create Cloud Functions to generate new content
