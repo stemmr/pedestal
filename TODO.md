@@ -10,6 +10,7 @@
 - Make it possible to distribute app on TestFlight
 
 ### Backend
+Use FireBase
 - Design API more thoughtfully
 - Generate API definition / Swift Client using OpenAPI
 - Add Database to SAM Deployment
