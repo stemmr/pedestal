@@ -18,6 +18,12 @@
 		8E0F81552CD2A9CB001AA3B2 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 8E0F81542CD2A9CB001AA3B2 /* FirebaseFunctions */; };
 		8E0F81572CD2A9CB001AA3B2 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 8E0F81562CD2A9CB001AA3B2 /* FirebasePerformance */; };
 		8E0F81592CD2A9CB001AA3B2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8E0F81582CD2A9CB001AA3B2 /* FirebaseStorage */; };
+		8E0F815C2CD2BBF3001AA3B2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F815B2CD2BBEF001AA3B2 /* LoginView.swift */; };
+		8E0F815E2CD2E4F6001AA3B2 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F815D2CD2E4F0001AA3B2 /* AuthenticationViewModel.swift */; };
+		8E0F81602CD2E9FC001AA3B2 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F815F2CD2E9F8001AA3B2 /* UserProfileView.swift */; };
+		8E0F81622CD2EA17001AA3B2 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F81612CD2EA10001AA3B2 /* SignupView.swift */; };
+		8E0F81642CD2ECA8001AA3B2 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F81632CD2ECA2001AA3B2 /* AuthenticatedView.swift */; };
+		8E0F81662CD2ECF5001AA3B2 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F81652CD2ECF0001AA3B2 /* AuthenticationView.swift */; };
 		8E75C2EA2CC8903E00B03D14 /* PedestalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75C2E92CC8903E00B03D14 /* PedestalApp.swift */; };
 		8E75C2EC2CC8903E00B03D14 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E75C2EB2CC8903E00B03D14 /* ContentView.swift */; };
 		8E75C2EE2CC8904000B03D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E75C2ED2CC8904000B03D14 /* Assets.xcassets */; };
@@ -64,6 +70,12 @@
 /* Begin PBXFileReference section */
 		8E080BD02CD1A13B004043A5 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		8E0F81482CD2A910001AA3B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8E0F815B2CD2BBEF001AA3B2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8E0F815D2CD2E4F0001AA3B2 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		8E0F815F2CD2E9F8001AA3B2 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		8E0F81612CD2EA10001AA3B2 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		8E0F81632CD2ECA2001AA3B2 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		8E0F81652CD2ECF0001AA3B2 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		8E4A5A012CCDBB7F00941DEA /* Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E75C2E62CC8903E00B03D14 /* Pedestal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pedestal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E75C2E92CC8903E00B03D14 /* PedestalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedestalApp.swift; sourceTree = "<group>"; };
@@ -137,6 +149,19 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		8E0F815A2CD2B6C5001AA3B2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8E0F81652CD2ECF0001AA3B2 /* AuthenticationView.swift */,
+				8E0F81632CD2ECA2001AA3B2 /* AuthenticatedView.swift */,
+				8E0F81612CD2EA10001AA3B2 /* SignupView.swift */,
+				8E0F815F2CD2E9F8001AA3B2 /* UserProfileView.swift */,
+				8E0F815B2CD2BBEF001AA3B2 /* LoginView.swift */,
+				8E0F815D2CD2E4F0001AA3B2 /* AuthenticationViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		8E75C2DD2CC8903E00B03D14 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +186,7 @@
 		8E75C2E82CC8903E00B03D14 /* Pedestal */ = {
 			isa = PBXGroup;
 			children = (
+				8E0F815A2CD2B6C5001AA3B2 /* Auth */,
 				8E080BCF2CD1A12E004043A5 /* Client */,
 				8ECD9FFA2CCDBAFB00D8CB18 /* View */,
 				8E8E6D0C2CCD9445006DDAA0 /* Util */,
@@ -428,17 +454,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0F81622CD2EA17001AA3B2 /* SignupView.swift in Sources */,
+				8E0F81642CD2ECA8001AA3B2 /* AuthenticatedView.swift in Sources */,
 				8E8E6D0B2CCD8EE4006DDAA0 /* PostViewModel.swift in Sources */,
 				8EF81A012CCC1D4C00C60229 /* Theme.swift in Sources */,
 				8E75C2EC2CC8903E00B03D14 /* ContentView.swift in Sources */,
+				8E0F815C2CD2BBF3001AA3B2 /* LoginView.swift in Sources */,
 				8EF819FB2CCAD54700C60229 /* Topics.swift in Sources */,
 				8EF819F72CCAA32D00C60229 /* Posts.swift in Sources */,
 				8E8E6D0E2CCD9462006DDAA0 /* LocalDecoder.swift in Sources */,
 				8EF81A092CCC3F1E00C60229 /* QuestionsView.swift in Sources */,
 				8E75C2F82CC890D500B03D14 /* TimelineView.swift in Sources */,
+				8E0F81602CD2E9FC001AA3B2 /* UserProfileView.swift in Sources */,
 				8E080BD12CD1A14B004043A5 /* Client.swift in Sources */,
 				8EF819F92CCAA34200C60229 /* Questions.swift in Sources */,
+				8E0F81662CD2ECF5001AA3B2 /* AuthenticationView.swift in Sources */,
 				8EF819EF2CC9DCC900C60229 /* PostView.swift in Sources */,
+				8E0F815E2CD2E4F6001AA3B2 /* AuthenticationViewModel.swift in Sources */,
 				8E75C2EA2CC8903E00B03D14 /* PedestalApp.swift in Sources */,
 				8EF81A072CCC3F0B00C60229 /* BookmarksView.swift in Sources */,
 				8EF81A052CCC3C0100C60229 /* MainTabView.swift in Sources */,

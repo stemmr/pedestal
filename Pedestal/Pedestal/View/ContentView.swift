@@ -55,8 +55,10 @@ struct ContentView: View {
         GridItem(.flexible())
     ]
     
+    @State private var path = NavigationPath()
+    
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(topics) { postViewModel in
@@ -68,6 +70,19 @@ struct ContentView: View {
                 .padding()
             }
             .navigationTitle("Topics")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: AuthenticatedView() {
+                        Text("You're signed in.")
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                            .background(.yellow)
+                    }) {
+                        Image(systemName: "person.circle")
+                            .imageScale(.large)
+                    }
+                }
+            }
         }
     }
 }
