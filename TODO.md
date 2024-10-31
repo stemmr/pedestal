@@ -11,12 +11,35 @@
 
 ### Backend
 - Add support for retrieving documents using Firebase
+  - Explore using @FirestoreQuery
 - Design API more thoughtfully
-- Add Email Authentication
-  - Sign Up
-  - Log In
-  - Delete Account
-  - (Forgot Password?)
+- Clean up Auth UI 
 - Add Apple and GitHub Auth options (and potentially X)
 
 - Create Cloud Functions to generate new content
+- Forgot Password with email Auth
+
+### Data Model
+
+- users
+  - bookmarks : collection
+  - questions_answered : collection
+  - questions_queue : collection
+  - posts : collection
+- questions
+  - Can be associated with a post or not
+- posts
+  - topic
+
+Important Queries:
+- Load all posts for a topic this user can access
+- Load all bookmarked posts for a topic from this user
+- Allow user to bookmark a post
+- Load all questions for a user
+
+DAU:
+- 100 posts viewed
+  - 100
+- 100 questions answered
+  - 
+- 50 bookmarks

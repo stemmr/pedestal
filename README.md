@@ -49,3 +49,9 @@ Views:
 3. Post
 4. Bookmarked
 5. Question
+
+### Development
+For local development we can use the Firebase emulator. First make sure it is downloaded and then call:
+```
+firebase emulators:start --import data --export-on-exit
+```
