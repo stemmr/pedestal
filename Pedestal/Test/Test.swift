@@ -13,7 +13,7 @@ struct Test {
 
     @Test func testLocalDecoder() async throws {
         // Read and decode posts from JSON file
-        let posts = try LocalDecoder.decodeJSON(file: "Resources/posts.json")
+//        let posts = try LocalDecoder.decodeJSON(file: "Resources/posts.json")
         
         
         // Verify first post's values

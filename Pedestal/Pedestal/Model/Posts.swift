@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct Post: Identifiable {
-    let id: UUID
+struct Post: Codable, Identifiable {
+    let id: String?
     let title: String
     let summary: String
     let content: String
     var bookmarked: Bool
     
     init(
-        id: UUID = UUID(),
+        id: String = UUID().uuidString,
         title: String,
         summary: String,
         content: String,

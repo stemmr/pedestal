@@ -6,11 +6,16 @@
 //
 
 import Foundation
+import FirebaseCore
+import FirebaseFirestore
 
 @MainActor
 class PostViewModel: Identifiable, ObservableObject {
     let id: UUID
-    let network: Bool = false
+    let network: Bool = true
+    let db: Firestore
+    
+    @Published var loaded: Bool = false
     @Published var topic: Topic
     @Published var posts: [Post] = []
     @Published var questions: [any Question] = []
@@ -20,16 +25,20 @@ class PostViewModel: Identifiable, ObservableObject {
         topic: String
     ) {
         self.id = id
+        self.db = Firestore.firestore()
         // Always load from JSON for now, make network calls later
-        let data: (topic: Topic, posts: [Post], questions: [any Question])
-        if !network {
-            data = PostViewModel.loadFromJSON(topic: topic)
-        } else {
-            data = PostViewModel.loadFromJSON(topic: topic)
-        }
-        self.topic = data.topic
-        self.posts = data.posts
-        self.questions = data.questions
+        self.topic = Topic(
+            title: topic,
+            points: 0
+        )
+        
+        self.loadPosts()
+        
+//        if !network {
+//            data = PostViewModel.loadFromJSON(topic: topic)
+//        } else {
+//            data =
+//        }
     }
     
     static func loadFromJSON(topic: String) -> (topic: Topic, posts: [Post], questions: [any Question]) {
@@ -100,6 +109,34 @@ class PostViewModel: Identifiable, ObservableObject {
             }
         }
         return nil
+    }
+    
+    func loadPosts() {
+        // For now we will be gettinga all posts from Firestore.
+        // Next: First call user collection and retrieve user's nextPosts and load those
+        var loadedPosts: [Post] = []
+        var loadedQuestions: [any Question] = []
+        
+        Task {
+            let querySnapshot = try await self.db.collection("posts")
+                .whereField("topic", isEqualTo: self.topic.title)
+                .limit(to: 50)
+                .getDocuments()
+            for post in querySnapshot.documents {
+                print("Found a post from Firebase! \(post["title"] as? String ?? "")")
+                loadedPosts.append(Post(
+                    id: post.documentID,
+                    title: post["title"] as? String ?? "",
+                    summary: post["summary"] as? String ?? "",
+                    content: post["content"] as? String ?? "",
+                    bookmarked: false
+                ))
+            }
+            self.posts = loadedPosts
+            print(self.posts)
+            self.questions = loadedQuestions
+        }
+        
     }
     
 }

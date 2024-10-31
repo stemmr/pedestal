@@ -5,19 +5,10 @@
 //  Created by Arthur Stemmer on 10/22/24.
 //
 
+import FirebaseFirestore
 import SwiftUI
 import FirebaseCore
 import FirebaseAuth
-
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-               didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        Auth.auth().useEmulator(withHost: "localhost", port: 9099)
-        return true
-    }
-}
 
 @main
 struct PedestalApp: App {
@@ -29,11 +20,11 @@ struct PedestalApp: App {
     ]
     var postViewModels: [PostViewModel]
     
-    // register app delegate for Firebase setup
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
     init() {
         print("--- Initializing Pedestal App ---")
+        FirebaseApp.configure()
+        Auth.auth().useEmulator(withHost: "localhost", port: 9099)
+        
         postViewModels = []
         for topic in topics {
             postViewModels.append(
