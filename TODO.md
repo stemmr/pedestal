@@ -36,9 +36,20 @@ Important Queries:
 - Allow user to bookmark a post
 - Load all questions for a user
 
-DAU:
-- 100 posts viewed
-  - 100
-- 100 questions answered
-  - 
-- 50 bookmarks
+### V1 / App Store Scope
+- User can authenticate with email/password
+  - Sees consistent state when reopening the app
+- Six initial topics 100 posts each
+- Each topic has 5 questions, at first random and then shown according to bookmarks
+- Points are given per topic and displayed
+- Automate post generation with Cloud Function
+
+### V2 Scope
+- Drastically improve design, potentially work with a designer
+- Add support for images when selecting topics / articles
+- Improve Auth Flow, add login with Apple / GitHub / Twitter
+- Automate new content generation on a schedule
+
+### V3 Scope
+- Include Payments / Premium version
+- Add Custom Topics support 
