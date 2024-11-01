@@ -32,5 +32,5 @@ struct BookmarksView: View {
 
 #Preview {
     BookmarksView()
-        .environmentObject(PostViewModel(topic: "history"))
+        .environmentObject(PostViewModel(topic: "history", userId: "0"))
 }

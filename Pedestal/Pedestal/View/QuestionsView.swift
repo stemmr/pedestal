@@ -71,5 +71,5 @@ struct QuestionsView: View {
 }
 
 #Preview {
-    QuestionsView().environmentObject(PostViewModel(topic: "history"))
+    QuestionsView().environmentObject(PostViewModel(topic: "history", userId: "0"))
 }

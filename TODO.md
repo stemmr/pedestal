@@ -20,7 +20,6 @@
 - Forgot Password with email Auth
 
 ### Data Model
-
 - users
   - bookmarks : collection
   - questions_answered : collection

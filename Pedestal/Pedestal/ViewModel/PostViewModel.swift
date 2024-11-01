@@ -22,7 +22,8 @@ class PostViewModel: Identifiable, ObservableObject {
     
     init(
         id: UUID = UUID(),
-        topic: String
+        topic: String,
+        userId: String
     ) {
         self.id = id
         self.db = Firestore.firestore()
@@ -33,12 +34,6 @@ class PostViewModel: Identifiable, ObservableObject {
         )
         
         self.loadPosts()
-        
-//        if !network {
-//            data = PostViewModel.loadFromJSON(topic: topic)
-//        } else {
-//            data =
-//        }
     }
     
     static func loadFromJSON(topic: String) -> (topic: Topic, posts: [Post], questions: [any Question]) {
@@ -136,7 +131,5 @@ class PostViewModel: Identifiable, ObservableObject {
             print(self.posts)
             self.questions = loadedQuestions
         }
-        
     }
-    
 }

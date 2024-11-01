@@ -90,10 +90,10 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(topics: [
-            PostViewModel(topic: "history"),
-            PostViewModel(topic: "biology"),
-            PostViewModel(topic: "arthistory"),
-            PostViewModel(topic: "physics")
+            PostViewModel(topic: "history", userId: "0"),
+            PostViewModel(topic: "biology", userId: "0"),
+            PostViewModel(topic: "arthistory", userId: "0"),
+            PostViewModel(topic: "physics", userId: "0")
         ])
     }
 }
