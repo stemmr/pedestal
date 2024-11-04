@@ -8,6 +8,7 @@
 import Foundation
 
 protocol Question: Identifiable {
+    var id: String { get }
     var question: String { get }
     var postId: String? { get }
     var points: Int { get }

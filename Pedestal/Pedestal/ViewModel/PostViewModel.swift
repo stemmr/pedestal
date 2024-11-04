@@ -113,14 +113,26 @@ class PostViewModel: Identifiable, ObservableObject {
     
     func answerMultipleChoiceQuestion(questionId: String, optionIndex: Int) -> Bool? {
         print("Answering  Multiple Choice Question: \(questionId) with \(optionIndex)")
-        if let index = self.questions.firstIndex(where: {$0.id as! String == questionId}) {
-            if var mcq = self.questions[index] as? MultipleChoiceQuestion {
-                let correct = mcq.answer(optionIndex: optionIndex)
+        if let index = self.questions.firstIndex(where: {$0.id == questionId}) {
+            let question: any Question = self.questions[index]
+            
+            if var mcq = question as? MultipleChoiceQuestion {
+                let result = mcq.answer(optionIndex: optionIndex)
                 self.questions[index] = mcq
-                if correct {
+                if result {
                     self.topic.points += mcq.points
                 }
-                return correct
+                
+                // Mark the question as answered
+                db.collection("users").document(userId).collection("questions").document(question.id)
+                    .setData([
+                        "answered": true,
+                        "correct": result,
+                        "points": question.points,
+                        "timestamp": Date().timeIntervalSince1970
+                    ])
+                questions.removeAll { $0.id == questionId }
+                return result
             }
         }
         return nil
