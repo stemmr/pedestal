@@ -14,8 +14,12 @@ protocol Question: Identifiable {
     var answered: Bool { get }
 }
 
+enum QuestionType: String {
+    case mcq = "MultipleChoice"
+}
+
 struct MultipleChoiceQuestion: Question {
-    let id: UUID
+    let id: String
     let postId: String?
     let question: String
     let options: [String]
@@ -24,7 +28,7 @@ struct MultipleChoiceQuestion: Question {
     var answered: Bool
     
     init(
-        id: UUID = UUID(),
+        id: String,
         postId: String?,
         question: String,
         options: [String],

@@ -37,6 +37,7 @@ class PostViewModel: Identifiable, ObservableObject {
         )
         
         self.loadPosts()
+        self.loadQuestionsQueue()
     }
     
     static func loadFromJSON(topic: String) -> (topic: Topic, posts: [Post], questions: [any Question]) {
@@ -64,6 +65,7 @@ class PostViewModel: Identifiable, ObservableObject {
                 )
                 let postQuestions: [MultipleChoiceQuestion] = postResponse.questions.map { questionResponse in
                     MultipleChoiceQuestion(
+                        id: UUID().uuidString,
                         postId: post.id,
                         question: questionResponse.question,
                         options: questionResponse.options,
@@ -93,7 +95,7 @@ class PostViewModel: Identifiable, ObservableObject {
         
         let bookmarkRef = db.collection("users")
             .document(self.userId)
-            .collection("bookmarked")
+            .collection("bookmarks")
             .document(postId)
         
         if state {
@@ -106,18 +108,12 @@ class PostViewModel: Identifiable, ObservableObject {
     }
     
     func currentQuestion() -> (any Question)? {
-        let bookmarkedIds = Set(self.bookmarkedPosts.map { $0.id })
-        for question in self.questions {
-            if !question.answered {
-                return question
-            }
-        }
-        return nil
+        return questions.first
     }
     
-    func answerMultipleChoiceQuestion(questionId: UUID, optionIndex: Int) -> Bool? {
+    func answerMultipleChoiceQuestion(questionId: String, optionIndex: Int) -> Bool? {
         print("Answering  Multiple Choice Question: \(questionId) with \(optionIndex)")
-        if let index = self.questions.firstIndex(where: {$0.id as! UUID == questionId}) {
+        if let index = self.questions.firstIndex(where: {$0.id as! String == questionId}) {
             if var mcq = self.questions[index] as? MultipleChoiceQuestion {
                 let correct = mcq.answer(optionIndex: optionIndex)
                 self.questions[index] = mcq
@@ -134,14 +130,13 @@ class PostViewModel: Identifiable, ObservableObject {
         // For now we will be gettinga all posts from Firestore.
         // Next: First call user collection and retrieve user's nextPosts and load those
         var loadedPosts: [Post] = []
-        var loadedQuestions: [any Question] = []
         
         Task {
-            let querySnapshot = try await self.db.collection("posts")
+            let snapshot = try await db.collection("posts")
                 .whereField("topic", isEqualTo: self.topic.title)
                 .limit(to: 50)
                 .getDocuments()
-            for post in querySnapshot.documents {
+            for post in snapshot.documents {
                 print("Found a post from Firebase! \(post["title"] as? String ?? "")")
                 loadedPosts.append(Post(
                     id: post.documentID,
@@ -153,8 +148,44 @@ class PostViewModel: Identifiable, ObservableObject {
             }
             self.posts = loadedPosts
             print(self.posts)
-            self.questions = loadedQuestions
         }
     }
     
+    func loadQuestionsQueue() {
+        var loadedQuestions: [any Question] = []
+        Task {
+            let userQuestions = try await db.collection("users").document(userId)
+                .collection("questions")
+                .whereField("answered", isEqualTo: false)
+                .limit(to: 50)
+                .getDocuments()
+            
+            var questionDocumentIds: [String] = []
+            for questionId in userQuestions.documents {
+                questionDocumentIds.append(questionId.documentID)
+            }
+            
+            for questionId in questionDocumentIds {
+                let question = try await db.collection("questions").document(questionId).getDocument()
+                print("Found a question from Firebase: \(question["question"] as? String ?? "")")
+                if let questionType = QuestionType(rawValue: question["type"] as? String ?? "") {
+                    print("QuestionType \(questionType)")
+                    switch questionType {
+                    case .mcq:
+                        loadedQuestions.append(MultipleChoiceQuestion(
+                            id: question.documentID,
+                            postId: question["postId"] as? String,
+                            question: question["question"] as? String ?? "",
+                            options: question["options"] as? [String] ?? [],
+                            correctOptionIndex: question["correctOptionIndex"] as? Int ?? 0,
+                            points: question["points"] as? Int ?? 0,
+                            answered: false
+                        ))
+                    }
+                }
+            }
+            print("Loaded Questions: \(loadedQuestions)")
+            self.questions = loadedQuestions
+        }
+    }
 }
