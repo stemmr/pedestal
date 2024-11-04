@@ -9,14 +9,14 @@ import Foundation
 import FirebaseFirestore
 
 struct Post: Codable, Identifiable {
-    let id: String?
+    let id: String
     let title: String
     let summary: String
     let content: String
     var bookmarked: Bool
     
     init(
-        id: String = UUID().uuidString,
+        id: String,
         title: String,
         summary: String,
         content: String,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
 
@@ -13,6 +14,7 @@ import FirebaseFirestore
 class PostViewModel: Identifiable, ObservableObject {
     let id: UUID
     let network: Bool = true
+    let userId: String
     let db: Firestore
     
     @Published var loaded: Bool = false
@@ -26,6 +28,7 @@ class PostViewModel: Identifiable, ObservableObject {
         userId: String
     ) {
         self.id = id
+        self.userId = userId
         self.db = Firestore.firestore()
         // Always load from JSON for now, make network calls later
         self.topic = Topic(
@@ -53,6 +56,7 @@ class PostViewModel: Identifiable, ObservableObject {
             
             topicResponse.posts.forEach { postResponse in
                 let post = Post(
+                    id: UUID().uuidString,
                     title: postResponse.title,
                     summary: postResponse.summary,
                     content: postResponse.content,
@@ -81,10 +85,30 @@ class PostViewModel: Identifiable, ObservableObject {
         self.posts.filter { $0.bookmarked }
     }
     
+    func toggleBookmark(postId: String) {
+        guard let index = posts.firstIndex(where: { $0.id == postId }) else { return }
+        
+        posts[index].bookmarked.toggle()
+        let state = posts[index].bookmarked
+        
+        let bookmarkRef = db.collection("users")
+            .document(self.userId)
+            .collection("bookmarked")
+            .document(postId)
+        
+        if state {
+            bookmarkRef.setData([
+                "timestamp": Date().timeIntervalSince1970
+            ])
+        } else {
+            bookmarkRef.delete()
+        }
+    }
+    
     func currentQuestion() -> (any Question)? {
         let bookmarkedIds = Set(self.bookmarkedPosts.map { $0.id })
         for question in self.questions {
-            if bookmarkedIds.contains(question.postId) && !question.answered {
+            if !question.answered {
                 return question
             }
         }
@@ -132,4 +156,5 @@ class PostViewModel: Identifiable, ObservableObject {
             self.questions = loadedQuestions
         }
     }
+    
 }

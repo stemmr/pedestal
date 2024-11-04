@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PostRowView: View {
+    @EnvironmentObject var postViewModel: PostViewModel
     @Binding var post: Post
 
     var body: some View {
@@ -21,7 +22,7 @@ struct PostRowView: View {
                             .multilineTextAlignment(.leading)
                         Spacer()
                         Button(action: {
-                            post.toggleBookmark()
+                            postViewModel.toggleBookmark(postId: post.id)
                         }) {
                             Image(systemName: post.bookmarked ? "bookmark.fill" : "bookmark")
                                 .foregroundColor(post.bookmarked ? .orange : .gray)
