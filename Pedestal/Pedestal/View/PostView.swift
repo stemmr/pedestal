@@ -12,8 +12,9 @@ struct PostView: View {
     @Binding var post: Post
     
     var body: some View {
+        let _ = print("Rendering \(post.content.replacingOccurrences(of: "\\n", with: "\n"))")
         ScrollView {
-            Markdown(post.content)
+            Markdown(post.content.replacingOccurrences(of: "\\n", with: "\n"))
                 .padding(.horizontal, 10)
         }
     }
