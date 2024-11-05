@@ -32,6 +32,7 @@ class PostViewModel: Identifiable, ObservableObject {
         self.db = Firestore.firestore()
         // Always load from JSON for now, make network calls later
         self.topic = Topic(
+            id: topic,
             title: topic,
             points: 0
         )
@@ -49,6 +50,7 @@ class PostViewModel: Identifiable, ObservableObject {
             }[0]
             // Should return empty posts / questions if fails
             let topic: Topic = Topic(
+                id: topicResponse.topic,
                 title: topicResponse.topic,
                 points: topicResponse.points
             )
@@ -79,7 +81,7 @@ class PostViewModel: Identifiable, ObservableObject {
             return (topic, posts, questions)
         } catch {
             print("Error loading JSON: \(error)")
-            return (Topic(title: topic), posts: [], questions: [])
+            return (Topic(id: topic, title: topic), posts: [], questions: [])
         }
     }
     

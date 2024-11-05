@@ -7,13 +7,13 @@
 
 import Foundation
 
-class Topic: Identifiable, ObservableObject {
-    let id: UUID
+class Topic: Identifiable, ObservableObject, Codable {
+    let id: String
     let title: String
     var points: Int
     
     init(
-        id: UUID = UUID(),
+        id: String,
         title: String,
         points: Int = 0
     ){
@@ -27,9 +27,9 @@ class Topic: Identifiable, ObservableObject {
 extension Topic {
     static var previewTopics: [Topic] {
         let topics: [Topic] = [
-            Topic(title: "History"),
-            Topic(title: "Physics"),
-            Topic(title: "Biology")
+            Topic(id: UUID().uuidString, title: "History"),
+            Topic(id: UUID().uuidString, title: "Physics"),
+            Topic(id: UUID().uuidString, title: "Biology")
         ]
         return topics
     }

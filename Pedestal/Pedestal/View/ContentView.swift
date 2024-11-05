@@ -48,7 +48,7 @@ struct TopicView: View {
 }
 
 struct ContentView: View {
-    let topics: [PostViewModel]
+    @ObservedObject var appViewModel = AppViewModel()
     
     let columns = [
         GridItem(.flexible()),
@@ -61,7 +61,7 @@ struct ContentView: View {
         NavigationStack(path: $path) {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(topics) { postViewModel in
+                    ForEach(appViewModel.postViewModels) { postViewModel in
                         TopicView(
                             backgroundImage: Image(postViewModel.topic.title)
                         ).environmentObject(postViewModel)
@@ -87,13 +87,13 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(topics: [
-            PostViewModel(topic: "history", userId: "0"),
-            PostViewModel(topic: "biology", userId: "0"),
-            PostViewModel(topic: "arthistory", userId: "0"),
-            PostViewModel(topic: "physics", userId: "0")
-        ])
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(postViewModels: [
+//            PostViewModel(topic: "history", userId: "0"),
+//            PostViewModel(topic: "biology", userId: "0"),
+//            PostViewModel(topic: "arthistory", userId: "0"),
+//            PostViewModel(topic: "physics", userId: "0")
+//        ])
+//    }
+//}

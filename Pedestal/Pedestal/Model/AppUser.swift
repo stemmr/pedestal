@@ -9,9 +9,8 @@ import FirebaseFirestore
 
 struct AppUser: Codable {
     @DocumentID var id: String?
-    var bookmarks: [String?]
-    var posts: [UserPosts]
-    var questions: [String?]
+    var topics: [Topic]
+    var name: String
 }
 
 // Maintain as a subcollection of user
@@ -20,6 +19,7 @@ struct UserBookmarks: Codable {
     var date: Date
 }
 
+// Maintain as a subcollection of user
 struct UserPosts: Codable, Hashable {
     @DocumentID var id: String? // Post ID
     var topic: String
