@@ -1,6 +1,11 @@
 OPENAI_API
 .DS_Store
 
+### Firebase ###
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
