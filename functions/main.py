@@ -19,6 +19,11 @@ OPENAI_API_KEY = SecretParam('OPENAI_API_KEY')
 
 model = "gpt-4o-mini"
 
+class Post(BaseModel):
+    title: str
+    summary: str
+    content: str
+
 class MultiChoice(BaseModel):
     question: str
     answers: list[str]
@@ -35,28 +40,34 @@ def createpost(req: https_fn.Request) -> https_fn.Response:
     
     firestore_client: google.cloud.firestore.Client = firestore.client()
     openai_client = OpenAI(api_key=OPENAI_API_KEY.value)
-    completion = openai_client.chat.completions.create(
+    completion = openai_client.beta.chat.completions.parse(
         model = model,
         messages = [
-            {"role": "system", "content": "Write some interesting information about the user-provided topic"},
-            {"role": "user", "content": topic}
-        ]
+            {"role": "system", "content": f"""
+                Write some interesting information about a sub area or niche within the wider topic {topic}.
+
+                Make sure that it is engaging, and has a similar tone to a blog post written by an expert on the topic or a Wikipedia Article.
+                It should also be very insightful, kind of like the type of article you'd find in a magazine, but with a slightly more academic tone.
+                Make sure to bring a lot of structure in the content you're providing to the user so it can easily be digested.
+
+                Ensure that it is about 500 words in length and that it can easily be digested in a few minutes reading.
+             """}
+        ],
+        response_format=Post
     )
 
-    title = "Some Title"
-    summary = "Some Summary"
-    content = completion.choices[0].message.content
+    post: Post = completion.choices[0].message.parsed
     
     # Store in Firestore
     _, doc_ref = firestore_client.collection("posts").add({
-        "title": title,
-        "summary": summary,
-        "content": content,
+        "title": post.title,
+        "summary":post.summary,
+        "content": post.content,
         "topic": topic,
         "created_at": firestore.SERVER_TIMESTAMP
     })
 
-    return https_fn.Response(f"Created a new post ({doc_ref.id}). [{content}]")
+    return https_fn.Response(f"Created a new post ({doc_ref.id}). [{post}]")
 
 @https_fn.on_request(secrets=[OPENAI_API_KEY])
 def createquestion(req: https_fn.Request) -> https_fn.Response:
@@ -82,7 +93,11 @@ def createquestion(req: https_fn.Request) -> https_fn.Response:
     completion = openai_client.beta.chat.completions.parse(
         model=model,
         messages=[
-            {"role": "system", "content": "Create a multiple choice question based on the following content"},
+            {"role": "system", "content": """
+                Create a multiple choice question based on the following content. 
+                Assign points to the question based on how difficult the question is to get right.
+                Ensure there are always 2-4 options to pick from with one correct answer. 
+             """},
             {"role": "user", "content": post_content}
         ],
         response_format=MultiChoice
@@ -101,4 +116,4 @@ def createquestion(req: https_fn.Request) -> https_fn.Response:
         "created_at": firestore.SERVER_TIMESTAMP
     })
 
-    return https_fn.Response(f"Created new question {question_ref.id} for post {post_id}")
+    return https_fn.Response(f"Created new question {question_ref.id} for post {post_id}: [{question}]")
