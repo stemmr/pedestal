@@ -17,23 +17,13 @@ app = initialize_app()
 
 OPENAI_API_KEY = SecretParam('OPENAI_API_KEY')
 
-@https_fn.on_request()
-def addmessage(req: https_fn.Request) -> https_fn.Response:
-    """Take the text parameter passed to this HTTP endpoint and insert it into
-    a new document in the messages collection."""
-    # Grab the text parameter.
-    original = req.args.get("text")
-    if original is None:
-        return https_fn.Response("No text parameters provided", status=400)
+model = "gpt-4o-mini"
 
-    firestore_client: google.cloud.firestore.Client = firestore.client()
-
-    # Push the new message into Cloud Firestore using the Firebase Admin SDK.
-    _, doc_ref = firestore_client.collection("messages").add({"original": original})
-
-    # Send back a message that we've successfully written the message
-    return https_fn.Response(f"Message with ID {doc_ref.id} added.")
-    
+class MultiChoice(BaseModel):
+    question: str
+    answers: list[str]
+    correct_idx: int
+    points: int
 
 @https_fn.on_request(secrets=[OPENAI_API_KEY])
 def createpost(req: https_fn.Request) -> https_fn.Response:
@@ -42,8 +32,6 @@ def createpost(req: https_fn.Request) -> https_fn.Response:
     topic = req.args.get("topic")
     if topic is None:
         return https_fn.Response("No topic provided for post generation", status=400)
-
-    model = "gpt-4o-mini"
     
     firestore_client: google.cloud.firestore.Client = firestore.client()
     openai_client = OpenAI(api_key=OPENAI_API_KEY.value)
@@ -60,7 +48,7 @@ def createpost(req: https_fn.Request) -> https_fn.Response:
     content = completion.choices[0].message.content
     
     # Store in Firestore
-    _, doc_ref = firestore_client.collection("staging_posts").add({
+    _, doc_ref = firestore_client.collection("posts").add({
         "title": title,
         "summary": summary,
         "content": content,
@@ -69,3 +57,48 @@ def createpost(req: https_fn.Request) -> https_fn.Response:
     })
 
     return https_fn.Response(f"Created a new post ({doc_ref.id}). [{content}]")
+
+@https_fn.on_request(secrets=[OPENAI_API_KEY])
+def createquestion(req: https_fn.Request) -> https_fn.Response:
+    """Takes in a post ID and generates a question based on that post and then uploads it to Firestore
+    Will also ensure the question is formatted correctly for consumption by the frontend."""
+    post_id = req.args.get("post_id")
+    if post_id is None:
+        return https_fn.Response("No post id provided to generate a question from.", status=400)
+    
+    firestore_client: google.cloud.firestore.Client = firestore.client()
+    openai_client = OpenAI(api_key=OPENAI_API_KEY.value)
+
+    # Get the post content
+    post_ref = firestore_client.collection("posts").document(post_id)
+    post = post_ref.get()
+    if not post.exists:
+        return https_fn.Response(f"Post with id {post_id} not found", status=404)
+    
+    post_data = post.to_dict()
+    post_content = post_data.get("content")
+
+    # Generate question using OpenAI
+    completion = openai_client.beta.chat.completions.parse(
+        model=model,
+        messages=[
+            {"role": "system", "content": "Create a multiple choice question based on the following content"},
+            {"role": "user", "content": post_content}
+        ],
+        response_format=MultiChoice
+    )
+    
+    question = completion.choices[0].message.parsed
+
+    # Store the question in Firestore
+    _, question_ref = firestore_client.collection("questions").add({
+        "post_id": post_id,
+        "question": question.question,
+        "answers": question.answers,
+        "correct_idx": question.correct_idx,
+        "points": question.points,
+        "type": "MultipleChoice",
+        "created_at": firestore.SERVER_TIMESTAMP
+    })
+
+    return https_fn.Response(f"Created new question {question_ref.id} for post {post_id}")
