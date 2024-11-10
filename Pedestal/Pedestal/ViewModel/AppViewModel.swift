@@ -80,24 +80,6 @@ class AppViewModel: ObservableObject {
         } catch {
             print("Could not create or retrieve user \(userId)")
         }
-        
-//        { (document, error) in
-//            if let document = document, document.exists {
-//                print("Account with ID \(userId) already exists")
-//            } else {
-//                do {
-//                    print("Creating account with \(userId)")
-//                    try userRef.setData(from: AppUser(
-//                        id: userId,
-//                        bookmarks: [],
-//                        posts: [],
-//                        questions: []
-//                    ))
-//                } catch {
-//                    print("Failed to create account with \(userId)")
-//                }
-//            }
-//        }
         return userId
     }
 }

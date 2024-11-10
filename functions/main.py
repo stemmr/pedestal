@@ -26,7 +26,7 @@ class Post(BaseModel):
 
 class MultiChoice(BaseModel):
     question: str
-    answers: list[str]
+    options: list[str]
     correct_idx: int
     points: int
 
@@ -107,13 +107,51 @@ def createquestion(req: https_fn.Request) -> https_fn.Response:
 
     # Store the question in Firestore
     _, question_ref = firestore_client.collection("questions").add({
-        "post_id": post_id,
+        "postId": post_id,
         "question": question.question,
-        "answers": question.answers,
-        "correct_idx": question.correct_idx,
+        "options": question.options,
+        "correctOptionIndex": question.correct_idx,
         "points": question.points,
         "type": "MultipleChoice",
-        "created_at": firestore.SERVER_TIMESTAMP
+        "createdAt": firestore.SERVER_TIMESTAMP
     })
 
     return https_fn.Response(f"Created new question {question_ref.id} for post {post_id}: [{question}]")
+
+@firestore_fn.on_document_created(document="users/{userId}/bookmarks/{postId}")
+def on_bookmarked(event: firestore_fn.Event[firestore_fn.DocumentSnapshot | None]):
+    """Watches a users bookmarks collection and updates the user's questions 
+    to more closely match the user's interests based on their bookmarks  
+    """
+    
+    user_id = event.params['userId']
+    if not event or not event.params:
+        print("Invalid event or missing parameters.")
+        return
+        
+    post_id = event.params.get('postId')
+    if not post_id:
+        print("No post ID specified in Firestore event.")
+        return
+    print(f"Calling bookmarked post handling function for {user_id} on {post_id}")
+    firestore_client: google.cloud.firestore.Client = firestore.client()
+
+    # Get all questions for the bookmarked post
+    questions = firestore_client.collection("questions").where("postId", "==", post_id).get()
+    print(f"Questions associated with a Bookmark: {questions}")
+    # Add each question to the user's questions collection
+    user_questions_ref = firestore_client.collection("users").document(user_id).collection("questions")
+    for question in questions:
+        # Check if question already exists for this user
+        question = user_questions_ref.document(question.id).get()
+        if not question.exists:
+            print(f"Setting a new question for the user. {question.id}")
+            user_questions_ref.add(
+                document_id = question.id,
+                document_data = {
+                    "answered": False,
+                    "postId": post_id,
+                    "createdAt": firestore.SERVER_TIMESTAMP
+                })
+        else:
+            print(f"Question {question.id} already exists for user.")
