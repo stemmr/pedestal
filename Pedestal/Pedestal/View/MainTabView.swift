@@ -25,10 +25,10 @@ struct MainTabView: View {
 //                    Image(systemName: "bookmark")
 //                    Text("Saved")
 //            }
-//            QuestionsView().tabItem {
-//                    Image(systemName: "book")
-//                    Text("Practice")
-//            }
+            QuestionsView(topic: topic).tabItem {
+                    Image(systemName: "book")
+                    Text("Practice")
+            }
         }
     }
 }

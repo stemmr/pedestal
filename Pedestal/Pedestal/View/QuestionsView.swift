@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MultipleChoiceQuestionView: View {
-    @EnvironmentObject var postViewModel: PostViewModel
+    @EnvironmentObject var questionsViewModel: QuestionsViewModel
     var question: MultipleChoiceQuestion
     
     var body: some View {
@@ -25,8 +25,7 @@ struct MultipleChoiceQuestionView: View {
             VStack(spacing: 16) {
                 ForEach(question.options.indices, id: \.self) { index in
                     Button(action: {
-                        let result = postViewModel.answerMultipleChoiceQuestion(questionId: question.id, optionIndex: index)
-                        print("Result from question: \(result)")
+                        _ = questionsViewModel.answerMultipleChoiceQuestion(questionId: question.id, optionIndex: index)
                     }) {
                         Text(question.options[index])
                             .font(.body)
@@ -55,12 +54,17 @@ struct MultipleChoiceQuestionView: View {
 }
 
 struct QuestionsView: View {
-    @EnvironmentObject var postViewModel: PostViewModel
+    @StateObject var questionsViewModel: QuestionsViewModel
+    
+    init(topic: String) {
+        _questionsViewModel = StateObject(wrappedValue: QuestionsViewModel(topic: topic))
+    }
     
     var body: some View {
-        if let question = postViewModel.currentQuestion() {
+        if let question = questionsViewModel.currentQuestion() {
             if let mcq = question as? MultipleChoiceQuestion {
                 MultipleChoiceQuestionView(question: mcq)
+                    .environmentObject(questionsViewModel)
             } else {
                 Text("Question Type is currently not supported")
             }
@@ -71,5 +75,5 @@ struct QuestionsView: View {
 }
 
 #Preview {
-    QuestionsView().environmentObject(PostViewModel(topic: "history", userId: "0"))
+    QuestionsView(topic: "history")
 }

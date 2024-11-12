@@ -9,6 +9,7 @@ import Foundation
 
 protocol Question: Identifiable {
     var id: String { get }
+    var topic: String { get }
     var question: String { get }
     var postId: String? { get }
     var points: Int { get }
@@ -22,6 +23,7 @@ enum QuestionType: String {
 struct MultipleChoiceQuestion: Question {
     let id: String
     let postId: String?
+    let topic: String
     let question: String
     let options: [String]
     let correctOptionIndex: Int
@@ -31,6 +33,7 @@ struct MultipleChoiceQuestion: Question {
     init(
         id: String,
         postId: String?,
+        topic: String,
         question: String,
         options: [String],
         correctOptionIndex: Int,
@@ -39,6 +42,7 @@ struct MultipleChoiceQuestion: Question {
     ) {
         self.id = id
         self.postId = postId
+        self.topic = topic
         self.question = question
         self.options = options
         self.correctOptionIndex = correctOptionIndex
