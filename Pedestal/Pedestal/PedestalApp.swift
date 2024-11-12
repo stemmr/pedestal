@@ -22,7 +22,7 @@ struct PedestalApp: App {
     
     var body: some Scene {
         return WindowGroup {
-            ContentView()
+            TopicsView()
         }
     }
 }

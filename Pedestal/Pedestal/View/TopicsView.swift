@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct TopicView: View {
-    @EnvironmentObject var postViewModel: PostViewModel
     let backgroundImage: Image?
+    let topic: Topic
     
     init(
-        backgroundImage: Image? = nil
+        backgroundImage: Image? = nil,
+        topic: Topic
     ) {
         self.backgroundImage = backgroundImage
+        self.topic = topic
     }
     
     var body: some View {
-        NavigationLink(destination: MainTabView()
-            .environmentObject(self.postViewModel)
-        ) {
+        NavigationLink(destination: MainTabView(topic: self.topic.id)) {
             GeometryReader { geometry in
                 VStack {
-                    Text(postViewModel.topic.title)
+                    Text(topic.title)
                         .font(.headline)
                         .foregroundStyle(Theme.title.color)
                         .padding()
-                    Text("\(postViewModel.topic.points)")
+                    Text("\(topic.points)")
                         .font(.headline)
                         .foregroundStyle(Theme.title.color)
 
@@ -47,8 +47,8 @@ struct TopicView: View {
     }
 }
 
-struct ContentView: View {
-    @ObservedObject var appViewModel = AppViewModel()
+struct TopicsView: View {
+    @StateObject var viewModel = TopicViewModel()
     
     let columns = [
         GridItem(.flexible()),
@@ -61,10 +61,11 @@ struct ContentView: View {
         NavigationStack(path: $path) {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(appViewModel.postViewModels) { postViewModel in
+                    ForEach(viewModel.topics) { topic in
                         TopicView(
-                            backgroundImage: Image(postViewModel.topic.title)
-                        ).environmentObject(postViewModel)
+                            backgroundImage: Image(topic.title),
+                            topic: topic
+                        )
                     }
                 }
                 .padding()
@@ -86,14 +87,3 @@ struct ContentView: View {
         }
     }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView(postViewModels: [
-//            PostViewModel(topic: "history", userId: "0"),
-//            PostViewModel(topic: "biology", userId: "0"),
-//            PostViewModel(topic: "arthistory", userId: "0"),
-//            PostViewModel(topic: "physics", userId: "0")
-//        ])
-//    }
-//}

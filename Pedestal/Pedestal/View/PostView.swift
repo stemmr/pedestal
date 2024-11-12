@@ -24,6 +24,7 @@ struct PostView_Previews: PreviewProvider {
     static var previews: some View {
         PostView(post: .constant(Post(
             id: UUID().uuidString,
+            topic: "history",
             title: "The Rise and Fall of Julius Caesar",
             summary: """
                      From brilliant military commander to controversial dictator, Caesar's life shaped the course of Roman history.

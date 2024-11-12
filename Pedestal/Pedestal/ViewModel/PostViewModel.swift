@@ -37,52 +37,8 @@ class PostViewModel: Identifiable, ObservableObject {
             points: 0
         )
         
-        self.loadPosts()
-        self.loadQuestionsQueue()
-    }
-    
-    static func loadFromJSON(topic: String) -> (topic: Topic, posts: [Post], questions: [any Question]) {
-        do {
-            let response = try LocalDecoder.decodeJSON(file: "posts")
-            print("Decoded content from JSON File")
-            let topicResponse = response.content.filter { topicItem in
-                topicItem.topic == topic
-            }[0]
-            // Should return empty posts / questions if fails
-            let topic: Topic = Topic(
-                id: topicResponse.topic,
-                title: topicResponse.topic,
-                points: topicResponse.points
-            )
-            var posts: [Post] = []
-            var questions: [any Question] = []
-            
-            topicResponse.posts.forEach { postResponse in
-                let post = Post(
-                    id: UUID().uuidString,
-                    title: postResponse.title,
-                    summary: postResponse.summary,
-                    content: postResponse.content,
-                    bookmarked: postResponse.bookmarked ?? false
-                )
-                let postQuestions: [MultipleChoiceQuestion] = postResponse.questions.map { questionResponse in
-                    MultipleChoiceQuestion(
-                        id: UUID().uuidString,
-                        postId: post.id,
-                        question: questionResponse.question,
-                        options: questionResponse.options,
-                        correctOptionIndex: questionResponse.correctOptionIndex,
-                        points: questionResponse.points
-                    )
-                }
-                posts.append(post)
-                questions += postQuestions
-            }
-            return (topic, posts, questions)
-        } catch {
-            print("Error loading JSON: \(error)")
-            return (Topic(id: topic, title: topic), posts: [], questions: [])
-        }
+//        self.loadPosts()
+//        self.loadQuestionsQueue()
     }
     
     var bookmarkedPosts: [Post] {
@@ -140,30 +96,30 @@ class PostViewModel: Identifiable, ObservableObject {
         return nil
     }
     
-    func loadPosts() {
-        // For now we will be gettinga all posts from Firestore.
-        // Next: First call user collection and retrieve user's nextPosts and load those
-        var loadedPosts: [Post] = []
-        
-        Task {
-            let snapshot = try await db.collection("posts")
-                .whereField("topic", isEqualTo: self.topic.title)
-                .limit(to: 50)
-                .getDocuments()
-            for post in snapshot.documents {
-                print("Found a post from Firebase! \(post["title"] as? String ?? "")")
-                loadedPosts.append(Post(
-                    id: post.documentID,
-                    title: post["title"] as? String ?? "",
-                    summary: post["summary"] as? String ?? "",
-                    content: post["content"] as? String ?? "",
-                    bookmarked: false
-                ))
-            }
-            self.posts = loadedPosts
-            print(self.posts)
-        }
-    }
+//    func loadPosts() {
+//        // For now we will be gettinga all posts from Firestore.
+//        // Next: First call user collection and retrieve user's nextPosts and load those
+//        var loadedPosts: [Post] = []
+//        
+//        Task {
+//            let snapshot = try await db.collection("posts")
+//                .whereField("topic", isEqualTo: self.topic.title)
+//                .limit(to: 50)
+//                .getDocuments()
+//            for post in snapshot.documents {
+//                print("Found a post from Firebase! \(post["title"] as? String ?? "")")
+//                loadedPosts.append(Post(
+//                    id: post.documentID,
+//                    title: post["title"] as? String ?? "",
+//                    summary: post["summary"] as? String ?? "",
+//                    content: post["content"] as? String ?? "",
+//                    bookmarked: false
+//                ))
+//            }
+//            self.posts = loadedPosts
+//            print(self.posts)
+//        }
+//    }
     
     func loadQuestionsQueue() {
         var loadedQuestions: [any Question] = []

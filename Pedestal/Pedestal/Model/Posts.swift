@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 struct Post: Codable, Identifiable {
     let id: String
+    let topic: String
     let title: String
     let summary: String
     let content: String
@@ -17,12 +18,14 @@ struct Post: Codable, Identifiable {
     
     init(
         id: String,
+        topic: String,
         title: String,
         summary: String,
         content: String,
         bookmarked: Bool = false
     ) {
         self.id = id
+        self.topic = topic
         self.title = title
         self.summary = summary
         self.content = content

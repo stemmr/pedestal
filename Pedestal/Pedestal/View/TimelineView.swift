@@ -42,14 +42,16 @@ struct PostRowView: View {
 }
 
 struct ScrollableTimelineView: View {
-    @EnvironmentObject var postViewModel: PostViewModel
+    @StateObject var timelineViewModel: TimelineViewModel
     
-    init() {}
+    init(topic: String) {
+        _timelineViewModel = StateObject(wrappedValue: TimelineViewModel(topic: topic))
+    }
     
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach($postViewModel.posts) { $post in
+                ForEach($timelineViewModel.posts) { $post in
                     VStack {
                         PostRowView(post: $post)
                             .padding(.horizontal)
@@ -65,8 +67,6 @@ struct ScrollableTimelineView: View {
 }
 
 #Preview {
-    let postViewModel: PostViewModel = PostViewModel(topic: "history", userId: "0")
-    ScrollableTimelineView()
-        .environmentObject(postViewModel)
+    ScrollableTimelineView(topic: "history")
 }
 
