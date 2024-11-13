@@ -14,10 +14,12 @@ class PedestalService: ObservableObject {
     static let shared = PedestalService()
     
     @Published var posts: [Post] = []
+    @Published var bookmarks: [Post] = []
     @Published var topics: [Topic] = []
     @Published var questions: [any Question] = []
     
     private var postSubscribers: [String: ListenerRegistration] = [:]
+    private var bookmarksSubscribers: [String: ListenerRegistration] = [:]
     private var questionSubscribers: [String: ListenerRegistration] = [:]
     
     var userId = "0000-000-0000"
@@ -67,19 +69,6 @@ class PedestalService: ObservableObject {
         postSubscribers[topic] = listener
         print("Post Subscriber for topic '\(topic)' has been added.")
     }
-    
-    func deregisterPostSubscriber(topic: String) {
-        // Check if a subscriber for this topic exists
-        if let listener = postSubscribers[topic] {
-            // Remove the listener
-            listener.remove()
-            // Remove the listener from the dictionary
-            postSubscribers.removeValue(forKey: topic)
-            print("Subscriber for topic '\(topic)' has been removed.")
-        } else {
-            print("No subscriber found for topic '\(topic)'.")
-        }
-    }
         
     func registerTopicSubscriber() {
         db.collection("users").document(userId)
@@ -122,10 +111,7 @@ class PedestalService: ObservableObject {
                     return
                 }
                 
-                var questionDocumentIds: [String] = []
-                for questionId in documents {
-                    questionDocumentIds.append(questionId.documentID)
-                }
+                var questionDocumentIds: [String] = documents.map { $0.documentID }
                 
                 let batches = stride(from: 0, to: questionDocumentIds.count, by: 10).map {
                     Array(questionDocumentIds[$0..<min($0 + 10, questionDocumentIds.count)])
@@ -171,6 +157,35 @@ class PedestalService: ObservableObject {
             }
         questionSubscribers[topic] = listener
         print("Question Subscriber for topic '\(topic)' has been added.")
+    }
+    
+    func registerBookmarksSubscriber(topic: String) {
+        db.collection("users").document(userId).collection("bookmarks").addSnapshotListener { snapshot, error in
+            guard let documents = snapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            
+            var bookmarkDocumentIds: [String] = documents.map { $0.documentID }
+            
+            let batches = stride(from: 0, to: bookmarkDocumentIds.count, by: 10).map {
+                Array(bookmarkDocumentIds[$0..<min($0 + 10, bookmarkDocumentIds.count)])
+            }
+            
+            for batch in batches {
+                self.db.collection("posts")
+                    .whereField(FieldPath.documentID(), in: batch)
+                    .getDocuments { [weak self] (querySnapshot, error) in
+                        guard let self = self else { return }
+                        guard let querySnapshot = querySnapshot else {
+                            print("Error fetching questions: \(error?.localizedDescription ?? "Unknown error")")
+                            return
+                        }
+                        
+                        for document in querySnapshot.documents {
+                            let data = document.data()
+                        }
+        }
     }
     
     func toggleBookmark(postId: String) {

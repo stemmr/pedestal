@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookmarksView: View {
     @EnvironmentObject var postViewModel: PostViewModel
+
     
     var body: some View {
         ScrollView {
@@ -31,6 +32,5 @@ struct BookmarksView: View {
 }
 
 #Preview {
-    BookmarksView()
-        .environmentObject(PostViewModel(topic: "history", userId: "0"))
+    BookmarksView(topic: "history")
 }

@@ -1,4 +1,5 @@
 ## Interaction Model
+Goal is to have a system that takes away all the friction of learning something new. Just go into the app, say what you want to learn and the app will do the rest for you.
 
 
 ### Levels of Users
