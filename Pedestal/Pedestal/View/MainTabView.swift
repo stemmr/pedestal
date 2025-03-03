@@ -9,6 +9,12 @@ import SwiftUI
 
 struct MainTabView: View {
     private let topic: String
+    static let viewMode: ViewMode = .immersive
+    
+    enum ViewMode {
+        case timeline
+        case immersive
+    }
     
     init(topic: String){
         self.topic = topic
@@ -16,10 +22,16 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            ScrollableTimelineView(topic: topic)
-                .tabItem {
-                    Image(systemName: "globe.desk")
-                    Text("Explore")
+            Group {
+                if MainTabView.viewMode == .timeline {
+                    ScrollableTimelineView(topic: topic)
+                } else {
+                    ScrollableImmersiveView(topic: topic)
+                }
+            }
+            .tabItem {
+                Image(systemName: "globe.desk")
+                Text("Explore")
             }
 //            BookmarksView().tabItem {
 //                    Image(systemName: "bookmark")

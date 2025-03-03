@@ -66,7 +66,7 @@ struct ScrollableTimelineView: View {
     }
 }
 
-#Preview {
-    ScrollableTimelineView(topic: "history")
-}
+//#Preview {
+//    ScrollableTimelineView(topic: "history")
+//}
 
