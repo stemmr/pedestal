@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct ImmersiveView: View {
     @EnvironmentObject var postViewModel: PostViewModel
@@ -34,19 +35,32 @@ struct ImmersiveView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            Text(post.summary)
-                .font(.subheadline)
-                .foregroundColor(Theme.subtitle.color)
-                .padding(.horizontal)
-            
             ScrollView {
-                Text(post.content)
-                    .font(.body)
-                    .foregroundColor(Theme.body.color)
+                Markdown(post.content.replacingOccurrences(of: "\\n", with: "\n"))
+                    .font(.subheadline)
+                    .foregroundColor(Theme.subtitle.color)
                     .padding(.horizontal)
-                    .padding(.vertical, 8)
             }
-            .scrollIndicators(.hidden)
+            .frame(height: UIScreen.main.bounds.height * 0.6) // Limit height to 40% of screen
+            .mask(
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color.black,
+                        Color.black,
+                        Color.black,
+                        Color.black,
+                        Color.black,
+                        Color.black,
+                        Color.black,
+                        Color.black.opacity(0.8),
+                        Color.black.opacity(0)
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
+            .padding(.horizontal)
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color(UIColor.systemBackground))
