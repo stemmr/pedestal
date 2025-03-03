@@ -69,7 +69,7 @@ class PedestalService: ObservableObject {
         postSubscribers[topic] = listener
         print("Post Subscriber for topic '\(topic)' has been added.")
     }
-        
+    
     func registerTopicSubscriber() {
         db.collection("users").document(userId)
             .collection("topics").addSnapshotListener { snapshot, error in
@@ -116,7 +116,7 @@ class PedestalService: ObservableObject {
                 let batches = stride(from: 0, to: questionDocumentIds.count, by: 10).map {
                     Array(questionDocumentIds[$0..<min($0 + 10, questionDocumentIds.count)])
                 }
-                            
+                
                 for batch in batches {
                     self.db.collection("questions")
                         .whereField(FieldPath.documentID(), in: batch)
@@ -185,16 +185,18 @@ class PedestalService: ObservableObject {
                         for document in querySnapshot.documents {
                             let data = document.data()
                         }
+                    }
+            }
         }
     }
-    
+        
     func toggleBookmark(postId: String) {
-        guard let index = posts.firstIndex(where: { $0.id == postId }) else { return }
+        guard let index = self.posts.firstIndex(where: { $0.id == postId }) else { return }
         
-        posts[index].bookmarked.toggle()
-        let state = posts[index].bookmarked
+        self.posts[index].bookmarked.toggle()
+        let state = self.posts[index].bookmarked
         
-        let bookmarkRef = db.collection("users")
+        let bookmarkRef = self.db.collection("users")
             .document(self.userId)
             .collection("bookmarks")
             .document(postId)
@@ -209,13 +211,12 @@ class PedestalService: ObservableObject {
     }
     
     func answerQuestion(questionId: String, result: Bool) {
-        db.collection("users").document(userId).collection("questions").document(questionId)
+        self.db.collection("users").document(self.userId).collection("questions").document(questionId)
             .setData([
                 "answered": true,
                 "correct": result,
                 "timestamp": Date().timeIntervalSince1970
             ], merge: true)
-        questions.removeAll { $0.id == questionId }
+        self.questions.removeAll { $0.id == questionId }
     }
-    
 }

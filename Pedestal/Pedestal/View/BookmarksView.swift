@@ -31,6 +31,3 @@ struct BookmarksView: View {
     }
 }
 
-#Preview {
-    BookmarksView(topic: "history")
-}
