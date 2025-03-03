@@ -35,13 +35,16 @@ struct ImmersiveView: View {
             .padding(.horizontal)
             .padding(.top)
             
-            ScrollView {
+            // Content preview with disabled scrolling
+            VStack {
                 Markdown(post.content.replacingOccurrences(of: "\\n", with: "\n"))
                     .font(.subheadline)
                     .foregroundColor(Theme.subtitle.color)
                     .padding(.horizontal)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .frame(height: UIScreen.main.bounds.height * 0.6) // Limit height to 40% of screen
+            .frame(height: UIScreen.main.bounds.height * 0.6) // Limit height to 60% of screen
+            .clipped() // Prevent content from overflowing
             .mask(
                 LinearGradient(
                     gradient: Gradient(colors: [
@@ -60,7 +63,6 @@ struct ImmersiveView: View {
                 )
             )
             .padding(.horizontal)
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color(UIColor.systemBackground))
@@ -73,6 +75,7 @@ struct ImmersiveView: View {
 struct ScrollableImmersiveView: View {
     @StateObject var timelineViewModel: TimelineViewModel
     @State private var currentIndex = 0
+    @State private var scrollPosition: Int?
     
     init(topic: String) {
         _timelineViewModel = StateObject(wrappedValue: TimelineViewModel(topic: topic))
@@ -93,13 +96,33 @@ struct ScrollableImmersiveView: View {
             }
             .scrollTargetLayout()
         }
-        .scrollTargetBehavior(.viewAligned)
+        .scrollPosition(id: $scrollPosition)
+        .scrollTargetBehavior(.paging)
+        .scrollDisabled(false)
+        .scrollIndicators(.hidden)
         .scrollClipDisabled()
         .ignoresSafeArea(edges: [.horizontal, .bottom])
         .safeAreaInset(edge: .top) {
             Color.clear
                 .frame(height: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 47)
         }
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    let threshold: CGFloat = 50
+                    if value.translation.height < -threshold && currentIndex < timelineViewModel.posts.count - 1 {
+                        // Swipe up - go to next post
+                        withAnimation {
+                            scrollPosition = currentIndex + 1
+                        }
+                    } else if value.translation.height > threshold && currentIndex > 0 {
+                        // Swipe down - go to previous post
+                        withAnimation {
+                            scrollPosition = currentIndex - 1
+                        }
+                    }
+                }
+        )
     }
     
     private func binding(for index: Int) -> Binding<Post> {
