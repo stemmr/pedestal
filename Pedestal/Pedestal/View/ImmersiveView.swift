@@ -81,7 +81,11 @@ struct ScrollableImmersiveView: View {
         }
         .scrollTargetBehavior(.viewAligned)
         .scrollClipDisabled()
-        .ignoresSafeArea()
+        .ignoresSafeArea(edges: [.horizontal, .bottom])
+        .safeAreaInset(edge: .top) {
+            Color.clear
+                .frame(height: UIApplication.shared.windows.first?.safeAreaInsets.top ?? 47)
+        }
     }
     
     private func binding(for index: Int) -> Binding<Post> {
