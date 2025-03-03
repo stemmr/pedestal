@@ -11,6 +11,7 @@ import MarkdownUI
 struct ImmersiveView: View {
     @EnvironmentObject var postViewModel: PostViewModel
     @Binding var post: Post
+    @State private var navigateToPost: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -69,6 +70,13 @@ struct ImmersiveView: View {
         .safeAreaInset(edge: .top) {
             Color.clear.frame(height: 1)
         }
+        .onTapGesture {
+            navigateToPost = true
+        }
+        .navigationDestination(isPresented: $navigateToPost) {
+            PostView(post: $post)
+                .navigationBarTitle(post.title, displayMode: .inline)
+        }
     }
 }
 
@@ -123,6 +131,8 @@ struct ScrollableImmersiveView: View {
                     }
                 }
         )
+        .navigationTitle("Explore")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func binding(for index: Int) -> Binding<Post> {
