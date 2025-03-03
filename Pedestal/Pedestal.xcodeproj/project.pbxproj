@@ -37,7 +37,7 @@
 		8E8E6D0B2CCD8EE4006DDAA0 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D0A2CCD8EE4006DDAA0 /* PostViewModel.swift */; };
 		8E8E6D0E2CCD9462006DDAA0 /* LocalDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8E6D0D2CCD9462006DDAA0 /* LocalDecoder.swift */; };
 		8E993D142CCE9BE50006AF06 /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E8E6D082CCD8AC5006DDAA0 /* posts.json */; };
-		8EB017C92D75E08E00DBAF41 /* ImmesiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB017C82D75E08A00DBAF41 /* ImmesiveView.swift */; };
+		8EB017C92D75E08E00DBAF41 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB017C82D75E08A00DBAF41 /* ImmersiveView.swift */; };
 		8EF819EF2CC9DCC900C60229 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819EE2CC9DCC900C60229 /* PostView.swift */; };
 		8EF819F22CC9E79700C60229 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8EF819F12CC9E79700C60229 /* MarkdownUI */; };
 		8EF819F72CCAA32D00C60229 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF819F62CCAA32D00C60229 /* Posts.swift */; };
@@ -85,7 +85,7 @@
 		8E8E6D082CCD8AC5006DDAA0 /* posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		8E8E6D0A2CCD8EE4006DDAA0 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		8E8E6D0D2CCD9462006DDAA0 /* LocalDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDecoder.swift; sourceTree = "<group>"; };
-		8EB017C82D75E08A00DBAF41 /* ImmesiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmesiveView.swift; sourceTree = "<group>"; };
+		8EB017C82D75E08A00DBAF41 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		8EF819EE2CC9DCC900C60229 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8EF819F62CCAA32D00C60229 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		8EF819F82CCAA34200C60229 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 		8ECD9FFA2CCDBAFB00D8CB18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8EB017C82D75E08A00DBAF41 /* ImmesiveView.swift */,
+				8EB017C82D75E08A00DBAF41 /* ImmersiveView.swift */,
 				8E75C2F72CC890D500B03D14 /* TimelineView.swift */,
 				8E75C2EB2CC8903E00B03D14 /* TopicsView.swift */,
 				8EF819EE2CC9DCC900C60229 /* PostView.swift */,
@@ -417,7 +417,7 @@
 				8E75C2EA2CC8903E00B03D14 /* PedestalApp.swift in Sources */,
 				8EF81A072CCC3F0B00C60229 /* BookmarksView.swift in Sources */,
 				8EF81A052CCC3C0100C60229 /* MainTabView.swift in Sources */,
-				8EB017C92D75E08E00DBAF41 /* ImmesiveView.swift in Sources */,
+				8EB017C92D75E08E00DBAF41 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
