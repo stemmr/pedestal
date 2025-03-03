@@ -12,34 +12,46 @@ struct ImmersiveView: View {
     @Binding var post: Post
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text(post.title)
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(Theme.title.color)
-                .padding(.horizontal)
+        VStack(alignment: .leading, spacing: 12) {
+            // Header with title and bookmark button
+            HStack {
+                Text(post.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Theme.title.color)
+                    .lineLimit(2)
+                
+                Spacer()
+                
+                Button(action: {
+                    postViewModel.toggleBookmark(postId: post.id)
+                }) {
+                    Image(systemName: post.bookmarked ? "bookmark.fill" : "bookmark")
+                        .font(.title3)
+                        .foregroundColor(post.bookmarked ? .orange : .gray)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.top)
             
             Text(post.summary)
                 .font(.subheadline)
                 .foregroundColor(Theme.subtitle.color)
                 .padding(.horizontal)
             
-            Spacer()
-            
-            HStack {
-                Spacer()
-                Button(action: {
-                    postViewModel.toggleBookmark(postId: post.id)
-                }) {
-                    Image(systemName: post.bookmarked ? "bookmark.fill" : "bookmark")
-                        .font(.title)
-                        .foregroundColor(post.bookmarked ? .orange : .gray)
-                }
-                .padding()
+            ScrollView {
+                Text(post.content)
+                    .font(.body)
+                    .foregroundColor(Theme.body.color)
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color(UIColor.systemBackground))
+        .safeAreaInset(edge: .top) {
+            Color.clear.frame(height: 1)
+        }
     }
 }
 
@@ -52,18 +64,22 @@ struct ScrollableImmersiveView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            TabView(selection: $currentIndex) {
-                ForEach(Array(timelineViewModel.posts.enumerated()), id: \.element.id) { index, post in
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 0) {
+                ForEach(0..<timelineViewModel.posts.count, id: \.self) { index in
                     ImmersiveView(post: binding(for: index))
-                        .tag(index)
-                        .rotationEffect(.degrees(0)) // Prevents SwiftUI bug with TabView
+                        .containerRelativeFrame([.horizontal, .vertical])
+                        .id(index)
+                        .onAppear {
+                            currentIndex = index
+                            print("Viewing post: \(timelineViewModel.posts[index].title)")
+                        }
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(width: geometry.size.width, height: geometry.size.height)
+            .scrollTargetLayout()
         }
-        .edgesIgnoringSafeArea(.all)
+        .scrollTargetBehavior(.paging)
+        .ignoresSafeArea()
     }
     
     private func binding(for index: Int) -> Binding<Post> {
@@ -72,5 +88,4 @@ struct ScrollableImmersiveView: View {
             set: { self.timelineViewModel.posts[index] = $0 }
         )
     }
-    
 }
