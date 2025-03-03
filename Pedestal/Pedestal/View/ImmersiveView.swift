@@ -46,6 +46,7 @@ struct ImmersiveView: View {
                     .padding(.horizontal)
                     .padding(.vertical, 8)
             }
+            .scrollIndicators(.hidden)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color(UIColor.systemBackground))
@@ -64,7 +65,7 @@ struct ScrollableImmersiveView: View {
     }
     
     var body: some View {
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 0) {
                 ForEach(0..<timelineViewModel.posts.count, id: \.self) { index in
                     ImmersiveView(post: binding(for: index))
@@ -78,7 +79,8 @@ struct ScrollableImmersiveView: View {
             }
             .scrollTargetLayout()
         }
-        .scrollTargetBehavior(.paging)
+        .scrollTargetBehavior(.viewAligned)
+        .scrollClipDisabled()
         .ignoresSafeArea()
     }
     
